@@ -1,0 +1,88 @@
+<body class="vertical-layout boxed loaded" style="">
+    <div class="app-loader main-loader">
+      <div class="loader-box">
+        <div class="bounceball"></div>
+        <div class="text">Medic<span>app</span></div>
+      </div>
+    </div>
+    <!-- .main-loader -->
+    <div class="page-box">
+      <div class="app-container">
+        <!-- Horizontal navbar -->
+        <app-header></app-header>
+        <!-- end Horizontal navbar --><!-- Vertical navbar -->
+        <app-sidebar></app-sidebar>
+        <!-- end Vertical navbar -->
+        <main class="main-content">
+          <div class="app-loader">
+            <i class="icofont-spinner-alt-4 rotate"></i>
+          </div>
+          <div class="main-content-wrap">
+  
+            <div class="page-content" *ngIf="showContent">
+              <app-top-cards></app-top-cards>
+              <app-hospital-survey></app-hospital-survey>
+              <app-patients-details></app-patients-details> 
+              <app-last-appointements></app-last-appointements>
+              
+  
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+  
+        </main>
+        <div class="app-footer">
+          <div class="footer-wrap">
+            <div class="row h-100 align-items-center">
+              <div class="col-12 col-md-6 d-none d-md-block">
+                <ul class="page-breadcrumbs">
+                  <li class="item">
+                    <a href="index.html#" class="link">Dashboards</a>
+                    <i class="separator icofont-thin-right"></i>
+                  </li>
+                  <li class="item">
+                    <a href="index.html#" class="link">Default</a>
+                    <i class="separator icofont-thin-right"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-6 text-end">
+                <div
+                  class="d-flex align-items-center justify-content-center justify-content-md-end"
+                >
+                  <span>Version 1.3.0</span>
+                  <button
+                    class="no-style ms-2 settings-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#settings"
+                  >
+                    <span class="icon icofont-ui-settings text-primary"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="footer-skeleton">
+              <div class="row align-items-center">
+                <div class="col-12 col-md-6 d-none d-md-block">
+                  <ul class="page-breadcrumbs">
+                    <li class="item bg-1 animated-bg"></li>
+                    <li class="item bg animated-bg"></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="info justify-content-center justify-content-md-end">
+                    <div class="version bg animated-bg"></div>
+                    <div class="settings animated-bg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-overlay"></div>
+      </div>
+    </div>
+  
+  </body>
+  
+  
