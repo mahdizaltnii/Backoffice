@@ -31,9 +31,13 @@
               "src/assets/css/Chart.min.css",
               "src/assets/css/datatables.min.css",
               "src/assets/css/style.css",
-              "src/assets/css/bootstrap/bootstrap.css"
+              "src/assets/css/bootstrap/bootstrap.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,5 +127,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "19e90677-1341-4633-90e4-c81bf246b30a"
   }
 }
