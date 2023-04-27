@@ -19,6 +19,9 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,11 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
     EquipementsComponent,
     LoginComponent,
     SignUpComponent,
-    EditAccountsComponent
+    EditAccountsComponent,
+    ShiftsComponent,
+    LeaveAuthComponent,
+    InternshipRequestComponent
+
   ],
   imports: [
     BrowserModule,

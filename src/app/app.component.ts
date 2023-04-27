@@ -18,7 +18,11 @@ export class AppComponent {
          (event.url === '/training')|| 
          (event.url === '/patients')|| 
          (event.url === '/equipement')||
-         (event.url === '/EditAccount')
+         (event.url === '/EditAccount')||
+         (event.url === '/leaves')||
+         (event.url === '/ahmed') ||
+         (event.url === '/internships')
+         
          
          ) {
           this.showContent = false;

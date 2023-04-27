@@ -9,6 +9,10 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { PatientsComponent } from './dashboard/patients/patients.component';
 import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { InternComponent } from './dashboard/intern/intern.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 
  const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -17,6 +21,9 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
   { path: 'equipement', component: EquipementsComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'doctors', component: DoctorsComponent },
+  { path: 'internships', component: InternshipRequestComponent },
+  { path: 'leaves', component: LeaveAuthComponent },
+  { path: 'ahmed', component: ShiftsComponent },
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
    { path: 'signup', component: SignUpComponent }
