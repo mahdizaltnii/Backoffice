@@ -7,3 +7,30 @@ span.link-text{
   width: 200px;
   float: left;
 }
+.item-link{
+  padding: 1rem 0.5rem !important;
+
+}
+.menu-ul{
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem !important;
+  
+}
+#navbar2{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+}
+.navbar2closed{
+  width: 100px !important;
+}
+.app-logo{
+  position: relative !important;
+}
+.toggle-sidebar{
+  position: absolute;
+  right: 20px;
+  top:20px;
+  cursor: pointer;
+  padding: 1rem 0.5rem;
+}
+.app-navbar{}

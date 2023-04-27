@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  constructor() { }
+ openSideBar = true
 
+ @Output() isSidebarOpenChange = new EventEmitter<boolean>();
+
+  constructor() { }
+ public onSave() {
+    this.openSideBar = !this.openSideBar
+    this.isSidebarOpenChange.emit(this.openSideBar);
+
+
+  }
 }

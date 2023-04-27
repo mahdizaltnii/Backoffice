@@ -8,9 +8,8 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'BackOffice';
-
   showContent = true;
-
+  openSideBar = true;
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -29,4 +28,6 @@ export class AppComponent {
       }
     });
   }
+
+  
 }

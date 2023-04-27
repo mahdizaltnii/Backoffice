@@ -356,9 +356,9 @@ body {
     z-index: 9998;
   }
 }
-body.vertical-layout .page-box .app-container {
+/* body.vertical-layout .page-box .app-container {
   padding-left: 17.14286rem;
-}
+} */
 @media (max-width: 991px) {
   body.vertical-layout .page-box .app-container {
     padding-left: 0;
@@ -372,9 +372,9 @@ body.vertical-layout
   .sk-logo {
   display: none !important;
 }
-body.vertical-layout .page-box .app-container .app-footer {
+/* body.vertical-layout .page-box .app-container .app-footer {
   left: 17.14286rem;
-}
+} */
 @media (max-width: 991px) {
   body.vertical-layout .page-box .app-container .app-footer {
     left: 0;

@@ -1,15 +1,61 @@
-<div id="navbar2" class="app-navbar vertical">
+<div id="navbar2" [ngStyle]="{'width':openSideBar  ? '17.1428571429rem' : '50px'}" class="app-navbar vertical">
   <div class="navbar-wrap">
     <button
       class="no-style navbar-toggle navbar-close icofont-close-line d-lg-none"
     ></button>
-    <div class="app-logo">
+    <div class="app-logo" *ngIf="openSideBar">
       <div class="logo-wrap">
           <img src="/assets/img/logo.svg" alt="" width="147" height="33" class="logo-img">
 
       </div>
+      <span class="toggle-sidebar" (click)="onSave()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg></span>
     </div>
-    <div class="main-menu">
+    <div class="main-menu" *ngIf="!openSideBar">
+      <nav class="main-menu-wrap">
+        <ul class="menu-ul" style="padding: 0;">
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" routerLink="/" style="display:flex; justify-content: center;">
+              <span (click)="onSave()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg></span>
+            </a>
+          </li>
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" routerLink="/" style="display:flex; justify-content: center;">
+              <img src="/assets/img/favicon.ico" alt="" width="25" height="25" >
+            </a>
+          </li>
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" routerLink="/doctors"   style="display:flex; justify-content: center;"
+            ><span class="link-icon icofont-doctor" ></span>
+            </a>
+          </li>
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" routerLink="/training"  style="display:flex; justify-content: center;"
+            ><span class="link-icon icofont-nurse"></span>
+ </a
+            >
+          </li>
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" routerLink="/patients"  style="display:flex; justify-content: center;"
+            ><span
+              class="link-icon icofont-paralysis-disability"
+            ></span>
+              </a
+            >
+          </li>
+          <li class="menu-item" style="padding: 0;" >
+            <a class="item-link" href="payments.html"
+            ><span class="link-icon icofont-pay"></span>
+              </a
+            >
+          </li>
+        </ul>
+      </nav> 
+    </div>
+    <div class="main-menu" *ngIf="openSideBar">
       <nav class="main-menu-wrap">
         <ul class="menu-ul">
           <li class="menu-item">
@@ -53,7 +99,7 @@
               <span class="link-text">Payments</span></a
             >
           </li>
-          <li class="menu-item">
+          <!-- <li class="menu-item">
             <span class="group-title">UI Kit</span>
           </li>
           <li class="menu-item has-sub">
@@ -320,21 +366,22 @@
                 >
               </li>
             </ul>
-          </li>
+          </li>-->
         </ul>
-      </nav>
+      </nav> 
     </div>
 
-    <div class="add-patient">
+    <div class="add-patient" *ngIf="openSideBar">
       <button
         class="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#add-patient"
+        style="width:100%"
       >
         <span class="btn-icon icofont-plus me-2"></span> Add Patient
       </button>
     </div>
-    <div class="assistant-menu">
+    <div class="assistant-menu" *ngIf="openSideBar">
       <a
         class="link"
         href="index.html#"
@@ -346,7 +393,7 @@
       Support</a
     >
     </div>
-    <div class="navbar-skeleton vertical">
+    <div class="navbar-skeleton vertical" *ngIf="openSideBar">
       <div class="top-part">
         <div class="sk-logo bg animated-bg"></div>
         <div class="sk-menu">
