@@ -8,7 +8,7 @@ import { Intern } from '../core/intern';
 })
 export class InternService {
 
-  private apiserverUrl='/intern';
+  private apiserverUrl='http://localhost:8083/intern';
   constructor(private http: HttpClient) { }
   public addIntern(intern :Intern): Observable<Intern>{
     return this.http.post<Intern>(`${this.apiserverUrl}/addIntern`,intern);

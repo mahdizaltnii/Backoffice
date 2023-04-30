@@ -1,1 +1,89 @@
-<p>shifts works!</p>
+
+<div class="main-content-wrap">
+    <header class="page-header"><h1 class="page-title">shifts</h1></header>
+    <div class="page-content">
+      <div class="card mb-0" style="border: none;">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">startTime</th>
+                  <th scope="col">endTime</th>
+                  <th scope="col">breakTime</th>
+                  <th scope="col">BreakDuration time</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+                <tbody *ngFor="let shift of shifts">
+                            <tr> 
+                                <td><strong>{{shift.id}}</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center nowrap text-primary">
+                                    
+                                    {{shift.startTime}}
+                                    </div>
+                                </td>
+                                <td><div class="text-muted text-nowrap">{{shift.endTime}}</div></td>
+                                <td><div class="text-muted text-nowrap">{{shift.breakTime}}</div></td>
+                                <td><strong>{{shift.BreakDuration}}</strong></td>
+                                <td>
+                                    <div class="actions">
+                                    <button class="btn btn-info btn-sm btn-square rounded-pill">
+                                        <span class="btn-icon icofont-ui-edit"></span>
+                                    </button>
+                                    <button
+                                        class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteShift(shift.id)"
+                                    >
+                                        <span class="btn-icon icofont-ui-delete"></span>
+                                    </button>
+                                    </div>
+                                </td>
+                             </tr>  
+                </tbody>
+            </table>
+          </div>
+          <nav class="mt-4">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a
+                  class="page-link"
+                  href="appointments.html#"
+                  aria-label="Previous"
+                  style="border-radius: 50%;"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  ><span class="icofont-simple-left"></span
+                ></a>
+              </li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="appointments.html#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#" aria-label="Next"   style="border-radius: 50%;"
+                  ><span class="icofont-simple-right"></span
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="add-action-box">
+        <button
+          class="btn btn-primary btn-lg btn-square rounded-pill"
+          data-bs-toggle="modal"
+          data-bs-target="#add-appointment"
+        >
+          <span class="btn-icon icofont-stethoscope-alt"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  

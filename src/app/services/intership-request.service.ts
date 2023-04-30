@@ -8,7 +8,7 @@ import { HttpClient } from  '@angular/common/http';
 })
 export class IntershipRequestService {
 
-  private apiserverUrl='/internship';
+  private apiserverUrl='http://localhost:8083/internship';
   constructor(private http: HttpClient) { } 
 
 

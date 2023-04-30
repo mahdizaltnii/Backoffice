@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LeaveService {
-  private apiserverUrl='/leave';
+  private apiserverUrl='http://localhost:8083/leave';
 
   constructor(private http: HttpClient) { }
 

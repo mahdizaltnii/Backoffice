@@ -7,7 +7,7 @@ import { HttpClient } from  '@angular/common/http';
     providedIn: 'root'
 })
 export class ShiftService{
-    private apiserverUrl='/shift';
+    private apiserverUrl='http://localhost:8083/shift';
     
     constructor(private http: HttpClient){}
 

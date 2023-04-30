@@ -22,6 +22,8 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
 import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { ShiftService } from './services/shift.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,10 @@ import { InternshipRequestComponent } from './dashboard/internship-request/inter
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ShiftService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

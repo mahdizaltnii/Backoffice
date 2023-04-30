@@ -24,4 +24,9 @@ export class ShiftsComponent implements OnInit {
       });
   }
 
+  deleteShift(idProduct : any){
+     this.shiftservice.deleteSHift(idProduct).subscribe(() => this.getShifts())
+     }
+    
+
 }
