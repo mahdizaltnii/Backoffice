@@ -1,4 +1,7 @@
 
+
+
+
 <div class="main-content-wrap">
     <header class="page-header"><h1 class="page-title">shifts</h1></header>
     <div class="page-content">
@@ -27,11 +30,48 @@
                                 </td>
                                 <td><div class="text-muted text-nowrap">{{shift.endTime}}</div></td>
                                 <td><div class="text-muted text-nowrap">{{shift.breakTime}}</div></td>
-                                <td><strong>{{shift.BreakDuration}}</strong></td>
+                                <td><strong>{{shift.breakDuration}}</strong></td>
                                 <td>
                                     <div class="actions">
-                                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                                        <span class="btn-icon icofont-ui-edit"></span>
+                                    <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="open(mymodal)">
+                                        <span class="btn-icon icofont-ui-edit" ></span>
+                                        <ng-template #mymodal let-modal>
+                                          <div class="modal-header">
+                                              <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                                              <button type="button" class="close" aria-label="Close"
+                                                  (click)="modal.dismiss('Cross click')">
+                                                  <span aria-hidden="true" (click)="cancel()">×</span>
+      
+                                              </button>
+      
+                                          </div>
+                                          <div>
+                                          <form>
+                                              <div class="modal-body">
+      
+                                                  <div class="row" class="col-md-5">
+                                                      <label>Title</label>
+                                                      <input type="datetime-local"  [(ngModel)]="shift.startTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                                  <div class="row" class="col-md-5">
+                                                      <label>endTime</label>
+                                                      <input type="datetime-local"  [(ngModel)]="shift.endTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                                  <div class="row" class="col-md-5">
+                                                      <label>breakDuration</label>
+                                                      <input type="datetime-local" [(ngModel)]="shift.breakTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                              </div>
+      
+                                              <div class="modal-footer">
+      
+                                                  <button type="button" class="btn btn-info"
+                                                      (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                                                  <button class="btn btn-success"(click)="editShift(shift.id,shift)" (click)="modal.close('Save click')">Validate</button>
+                                              </div>
+                                          </form>
+                                      </div>
+                                      </ng-template>
                                     </button>
                                     <button
                                         class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteShift(shift.id)"
@@ -39,11 +79,14 @@
                                         <span class="btn-icon icofont-ui-delete"></span>
                                     </button>
                                     </div>
-                                </td>
+                                  </td>
                              </tr>  
                 </tbody>
-            </table>
+              </table>
           </div>
+
+
+          
           <nav class="mt-4">
             <ul class="pagination">
               <li class="page-item disabled">
@@ -86,4 +129,36 @@
       </div>
     </div>
   </div>
+  
+
+  <div class="col-md-12">
+    <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new shift</button>
+    <br><br>
+    <ng-template #mymodal1 let-modal1>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title" >Add new shift</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+                <span aria-hidden="true" (click)="cancel()">×</span>
+            </button>
+  
+        </div>
+        <div class="center">
+        <form>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="shift StartTime" [(ngModel)]="shift.startTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="endTime" [(ngModel)]="shift.endTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="breaktime" [(ngModel)]="shift.breakTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="number" placeholder="breakduration" [(ngModel)]="shift.breakDuration" [ngModelOptions]="{standalone:true}">
+            </div>
+            <br>
+            <button type="button" class="btn btn-success" (click)="addShift(shift)" (click)="modal1.close('Save click')">Add</button> 
+            <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+        </form>
+    </div>
   

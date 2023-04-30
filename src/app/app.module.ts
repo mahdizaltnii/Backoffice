@@ -24,6 +24,9 @@ import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component'
 import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
 import { ShiftService } from './services/shift.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+    NgbModalModule,
+    RouterModule
   ],
   providers: [ShiftService],
   bootstrap: [AppComponent]
