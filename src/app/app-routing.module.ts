@@ -9,17 +9,18 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { PatientsComponent } from './dashboard/patients/patients.component';
 import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { AppComponent } from './app.component';
 
  const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'login', component:LoginComponent  },
+  { path: 'signup', component: SignUpComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'equipement', component: EquipementsComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'doctors', component: DoctorsComponent },
-   { path: 'login', component: LoginComponent },
-   { path: 'EditAccount', component: EditAccountsComponent },
-   { path: 'signup', component: SignUpComponent }
+  { path: 'EditAccount', component: EditAccountsComponent }
 ];
 
 @NgModule({
