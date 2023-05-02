@@ -14,7 +14,7 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
   { path: 'dashboard', component: DashboardComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
-  { path: 'equipement', component: EquipementsComponent },
+  { path: 'equipements', component: EquipementsComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'doctors', component: DoctorsComponent },
    { path: 'login', component: LoginComponent },
