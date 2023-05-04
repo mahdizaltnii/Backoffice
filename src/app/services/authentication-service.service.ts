@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthentificationRequest, AuthentificationResponse, Loginform, RegisterRequest} from "../loginform";
 import {BehaviorSubject, Observable, of, tap} from "rxjs";
 import { User } from '../user';
@@ -42,6 +42,14 @@ export class AuthenticationServiceService {
   register(request:RegisterRequest): Observable<AuthentificationResponse> {
     return this.http.post<AuthentificationResponse>(this.apiUrl +'register', request);
   }
-
+  editAccount(id: number, request: RegisterRequest): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}${id}/edit`, request);
+  }
+  
+  getCurrentUser(): Observable<User> {
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.get<User>(this.apiUrl+'current', { headers });
+  }
+  
 
 }

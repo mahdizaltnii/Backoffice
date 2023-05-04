@@ -26,4 +26,8 @@ export class DashboardComponent {
        }
      });
    }
+
+   logout() {
+    localStorage.removeItem('token');
+  } 
 }
