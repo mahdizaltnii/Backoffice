@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-accounts',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-accounts.component.css']
 })
 export class EditAccountsComponent {
-
+  myForm !: FormGroup;
 }

@@ -1,1 +1,83 @@
-<p>sign-up works!</p>
+<head>
+  <meta charset="utf-8" />
+  <title>
+    MedicApp - Medical &amp; Hospital HTML5/Bootstrap admin template
+  </title>
+  <meta name="keywords" content="MedicApp" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css" />
+  <link rel="stylesheet" href="/assets/css/icofont.min.css" />
+  <link rel="stylesheet" href="/assets/css/simple-line-icons.css" />
+  <link rel="stylesheet" href="/assets/css/jquery.typeahead.css" />
+  <link rel="stylesheet" href="/assets/css/datatables.min.css" />
+  <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="/assets/css/Chart.min.css" />
+  <link rel="stylesheet" href="/assets/css/morris.css" />
+  <link rel="stylesheet" href="/assets/css/leaflet.css" />
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+
+<body class="public-layout loaded">
+  <div class="app-loader main-loader">
+    <div class="loader-box">
+      <div class="bounceball"></div>
+      <div class="text">Medic<span>app</span></div>
+    </div>
+  </div>
+  <!-- .main-loader -->
+  <div class="page-box">
+    <div class="app-container page-sign-up">
+      <div class="content-box">
+        <div class="content-header">
+          <div class="app-logo">
+            <div class="logo-wrap">
+              <img src="/assets/img/logo.svg" alt="" width="147" height="33" class="logo-img" />
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+          <div class="w-100">
+            <h2 class="h4 mt-0 mb-1">Sign up</h2>
+            <p class="text-muted">Create your Account</p>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <input class="form-control" formControlName="username" placeholder="username" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" formControlName="firstName" placeholder="firstName" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" formControlName="lastName" placeholder="lastName" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" formControlName="email" type="email" placeholder="Login" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" formControlName="password" type="password" placeholder="Password" />
+              </div>
+              <div class="form-check form-switch mb-4">
+                <input type="checkbox" class="form-check-input" id="remember-me" checked="checked" />
+                <label class="form-check-label" for="remember-me">I agree to the Terms and Privacy</label>
+              </div>
+              <div class="actions justify-content-between">
+                <button class="btn btn-primary" type="submit">
+                  <span class="btn-icon icofont-plus me-2"></span>Sign up
+                </button>
+              </div>
+            </form>
+            <p class="mt-5">
+              Have an account? <a routerLink="/login">Sign in!</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

@@ -14,8 +14,11 @@ import {
 } from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
 
 
+
  const routes: Routes = [
+  { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'equipements', component: EquipementsComponent },
@@ -24,10 +27,7 @@ import {
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
    { path: 'signup', component: SignUpComponent },
-
    { path: 'evaluation', component: EvaluationTrainingComponent}
-
-
 ];
 
 @NgModule({

@@ -23,11 +23,11 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import {FormsModule} from "@angular/forms";
 import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
 import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
@@ -48,12 +48,14 @@ import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/eval
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
     MatLegacyFormFieldModule
+    BrowserAnimationsModule,   
+     HttpClientModule,
+     ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
