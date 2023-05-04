@@ -9,7 +9,7 @@
     <div class="page-box"  >
       <div class="app-container" [ngStyle]="{padding:openSideBar  ? '0 0 0 17.1428571429rem' : '0 0 0 50px' }"   >
         <!-- Horizontal navbar -->
-        <app-header></app-header>
+        <app-header ></app-header>
         <!-- end Horizontal navbar --><!-- Vertical navbar -->
         <app-sidebar (isSidebarOpenChange)="openSideBar = $event"></app-sidebar>
         <!-- end Vertical navbar -->
@@ -25,9 +25,9 @@
               <app-patients-details></app-patients-details> 
               <app-last-appointements></app-last-appointements>
               
-             
             </div>
-            <router-outlet></router-outlet>
+            
+
           </div>
   
         </main>

@@ -16,7 +16,7 @@ span.link-text {
   row-gap: 0.5rem !important;
 }
 #navbar2 {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .navbar2closed {
   width: 100px !important;

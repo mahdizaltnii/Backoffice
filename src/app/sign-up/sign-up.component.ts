@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationServiceService } from '../services/authentication-service.service';
 import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,9 +11,12 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent {
   myForm !: FormGroup;
- 
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
   
-  constructor(private authService: AuthenticationServiceService, private router: Router) {
+  constructor(private authService: AuthenticationServiceService, private router: Router,private storageService: StorageService) {
     
   }
 
@@ -25,23 +29,25 @@ export class SignUpComponent {
       password : new FormControl()
     })
   }
-
   onSubmit(): void {
-   
     console.log(this.myForm.value)
-    this.authService.register(this.myForm.value).subscribe(
-      response => { console.log(response)
-         // Authentication successful
-         const token = response.token;
-         // Do something with the token
-         localStorage.setItem('token', token);  //save the token in local storage
-         console.log(token); // log the token to the console
-         this.router.navigateByUrl('/dashboard');
-       },
-       error => {
-         // Authentication failed
-         console.error(error);
-       }
-    );
+
+    this.authService.register(this.myForm.value).subscribe({
+      next: data => {
+        this.storageService.saveUser(data);
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.storageService.getUser();
+        this.router.navigateByUrl('/dashboard');
+        console.log('User roles:', this.roles); // print role information in console
+        
+        console.log(this.isLoggedIn)
+    
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+      }
+
+    });
   }
 }

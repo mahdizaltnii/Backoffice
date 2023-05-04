@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -46,10 +47,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,   
      HttpClientModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

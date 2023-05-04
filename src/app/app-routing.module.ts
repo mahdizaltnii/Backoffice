@@ -12,8 +12,8 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { AppComponent } from './app.component';
 
  const routes: Routes = [
+  { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component:LoginComponent  },
   { path: 'signup', component: SignUpComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },

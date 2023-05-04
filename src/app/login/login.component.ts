@@ -5,7 +5,8 @@ import {Loginform} from "../loginform";
 import {AuthenticationServiceService} from "../services/authentication-service.service";
 import { AuthentificationRequest, AuthentificationResponse } from "../loginform";
 import { BehaviorSubject } from 'rxjs';
- 
+import { StorageService } from '../services/storage.service';
+
 
 
 @Component({
@@ -19,9 +20,12 @@ export class LoginComponent  {
 
   myForm !: FormGroup;
   private loggedIn = new BehaviorSubject<boolean>(false);
-
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
   
-  constructor(private authService: AuthenticationServiceService, private router: Router) {
+  constructor(private authService: AuthenticationServiceService, private router: Router,private storageService: StorageService) {
     
   }
 
@@ -30,37 +34,78 @@ export class LoginComponent  {
       email : new FormControl,
       password : new FormControl()
     })
+    // if (this.storageService.isLoggedIn()) {
+    //   this.isLoggedIn = true;
+    //   this.roles = this.storageService.getUser().roles;
+      
+    // }
   }
 
-  onSubmit(): void {
-    // const request = new AuthentificationRequest();
-    // request.email = this.email;
-    // request.password = this.password;
-    console.log(this.myForm.value)
-    this.authService.authenticate(this.myForm.value).subscribe(
-      response => { console.log(response)
-         // Authentication successful
-         const token = response.token;
-         // Do something with the token
-         localStorage.setItem('token', token);  //save the token in local storage
-         console.log(token); // log the token to the console
-         this.loggedIn.next(true);
+ 
+
+//   onSubmit(): void {
+//  //const request = new AuthentificationRequest();
+// // request.email = this.email;
+// // request.password = this.password;
+//   console.log(this.myForm.value)
+//   this.authService.authenticate(this.myForm.value).subscribe(
+//     response => { console.log(response)
+//        // Authentication successful
+//          const token = response.token;
+// //       // Do something with the token
+//          localStorage.setItem('token', token);//save the token in local storage
+//         console.log(token); //log the token to the console
+//         this.loggedIn.next(true);
+//         this.getCurrentUser();
+   
         
-         this.router.navigateByUrl('/dashboard');
-       },
-       error => {
-         // Authentication failed
-         console.error(error);
-       }
-    );
-  }
+//          this.router.navigateByUrl('/dashboard');
+//        },
+//        error => {
+//        // Authentication failed
+//          console.error(error);
+//        }
+//     );
+//     }
 
-  
+    // getCurrentUser() {
+    //   this.authService.getCurrentUser().subscribe(user => {
+    //     console.log(user);
+    //   });
+    // }
+  onSubmit(): void {
+    console.log(this.myForm.value)
+
+    this.authService.authenticate(this.myForm.value).subscribe({
+      next: data => {
+        this.storageService.saveUser(data);
+        console.log(data)
+        console.log(this.storageService.saveUser(data))
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.storageService.getUser();
+        this.router.navigateByUrl('/dashboard');
+        console.log('User details:', this.storageService.getUser()); // print role information in console
+        console.log(this.isLoggedIn)
+    
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+
+    });
+  }
+ 
+
+  reloadPage(): void {
+    window.location.reload();
+  }
 
   logout() {
-    localStorage.removeItem('token');
+this.storageService.logout()
     this.loggedIn.next(false);
-  } 
+    } 
   
 
   
