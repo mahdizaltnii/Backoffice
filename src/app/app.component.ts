@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -24,14 +25,17 @@ export class AppComponent {
          (event.url === '/internships')
          
          
-         ) {
-          this.showContent = false;
-        } else {
-          this.showContent = true;
-        }
-      }
-    });
-  }
+          ) {
+           this.showContent = false;
+         } else {
+           this.showContent = true;
+         }
+       }
+     });
+   }
 
+  
+
+  
   
 }

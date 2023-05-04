@@ -13,12 +13,19 @@ import { InternComponent } from './dashboard/intern/intern.component';
 import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
 import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
 import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import {
+  EvaluationTrainingComponent
+} from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
+
+
 
  const routes: Routes = [
+  { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
-  { path: 'equipement', component: EquipementsComponent },
+  { path: 'equipements', component: EquipementsComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'doctors', component: DoctorsComponent },
   { path: 'internships', component: InternshipRequestComponent },
@@ -26,7 +33,8 @@ import { ShiftsComponent } from './dashboard/shifts/shifts.component';
   { path: 'ahmed', component: ShiftsComponent },
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
-   { path: 'signup', component: SignUpComponent }
+   { path: 'signup', component: SignUpComponent },
+   { path: 'evaluation', component: EvaluationTrainingComponent}
 ];
 
 @NgModule({

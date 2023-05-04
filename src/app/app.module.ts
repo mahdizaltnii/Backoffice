@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,11 +28,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import {FormsModule} from "@angular/forms";
+import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
@@ -50,7 +54,7 @@ import { RouterModule } from '@angular/router';
     ShiftsComponent,
     LeaveAuthComponent,
     InternshipRequestComponent
-
+    EvaluationTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,10 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     NgbModule,
     NgbModalModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    MatLegacyFormFieldModule
+    
   ],
   providers: [ShiftService],
   bootstrap: [AppComponent]
