@@ -20,6 +20,14 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { ShiftService } from './services/shift.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
 import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
@@ -43,19 +51,25 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     SignUpComponent,
     EditAccountsComponent,
+    ShiftsComponent,
+    LeaveAuthComponent,
+    InternshipRequestComponent
     EvaluationTrainingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
+    NgbModule,
+    NgbModalModule,
+    RouterModule,
+    ReactiveFormsModule,
     MatLegacyFormFieldModule
-    BrowserAnimationsModule,   
-     HttpClientModule,
-     ReactiveFormsModule,
-
+    
   ],
-  providers: [ ],
+  providers: [ShiftService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

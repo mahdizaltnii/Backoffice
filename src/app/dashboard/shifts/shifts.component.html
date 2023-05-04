@@ -1,0 +1,164 @@
+
+
+
+
+<div class="main-content-wrap">
+    <header class="page-header"><h1 class="page-title">shifts</h1></header>
+    <div class="page-content">
+      <div class="card mb-0" style="border: none;">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">startTime</th>
+                  <th scope="col">endTime</th>
+                  <th scope="col">breakTime</th>
+                  <th scope="col">BreakDuration time</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+                <tbody *ngFor="let shift of shifts">
+                            <tr> 
+                                <td><strong>{{shift.id}}</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center nowrap text-primary">
+                                    
+                                    {{shift.startTime}}
+                                    </div>
+                                </td>
+                                <td><div class="text-muted text-nowrap">{{shift.endTime}}</div></td>
+                                <td><div class="text-muted text-nowrap">{{shift.breakTime}}</div></td>
+                                <td><strong>{{shift.breakDuration}}</strong></td>
+                                <td>
+                                    <div class="actions">
+                                    <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="open(mymodal)">
+                                        <span class="btn-icon icofont-ui-edit" ></span>
+                                        <ng-template #mymodal let-modal>
+                                          <div class="modal-header">
+                                              <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                                              <button type="button" class="close" aria-label="Close"
+                                                  (click)="modal.dismiss('Cross click')">
+                                                  <span aria-hidden="true" (click)="cancel()">×</span>
+      
+                                              </button>
+      
+                                          </div>
+                                          <div>
+                                          <form>
+                                              <div class="modal-body">
+      
+                                                  <div class="row" class="col-md-5">
+                                                      <label>Title</label>
+                                                      <input type="datetime-local"  [(ngModel)]="shift.startTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                                  <div class="row" class="col-md-5">
+                                                      <label>endTime</label>
+                                                      <input type="datetime-local"  [(ngModel)]="shift.endTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                                  <div class="row" class="col-md-5">
+                                                      <label>breakDuration</label>
+                                                      <input type="datetime-local" [(ngModel)]="shift.breakTime" [ngModelOptions]="{standalone : true}" />
+                                                  </div>
+                                              </div>
+      
+                                              <div class="modal-footer">
+      
+                                                  <button type="button" class="btn btn-info"
+                                                      (click)="modal.close('Save click')" (click)="cancel()">Cancel</button>
+                                                  <button class="btn btn-success"(click)="editShift(shift.id,shift)" (click)="modal.close('Save click')">Validate</button>
+                                              </div>
+                                          </form>
+                                      </div>
+                                      </ng-template>
+                                    </button>
+                                    <button
+                                        class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteShift(shift.id)"
+                                    >
+                                        <span class="btn-icon icofont-ui-delete"></span>
+                                    </button>
+                                    </div>
+                                  </td>
+                             </tr>  
+                </tbody>
+              </table>
+          </div>
+
+
+          
+          <nav class="mt-4">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a
+                  class="page-link"
+                  href="appointments.html#"
+                  aria-label="Previous"
+                  style="border-radius: 50%;"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  ><span class="icofont-simple-left"></span
+                ></a>
+              </li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="appointments.html#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="appointments.html#" aria-label="Next"   style="border-radius: 50%;"
+                  ><span class="icofont-simple-right"></span
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="add-action-box">
+        <button
+          class="btn btn-primary btn-lg btn-square rounded-pill"
+          data-bs-toggle="modal"
+          data-bs-target="#add-appointment"
+        >
+          <span class="btn-icon icofont-stethoscope-alt"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="col-md-12">
+    <button class="btn btn-round btn-sm btn-success" (click)="open(mymodal1)">Add new shift</button>
+    <br><br>
+    <ng-template #mymodal1 let-modal1>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title" >Add new shift</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+                <span aria-hidden="true" (click)="cancel()">×</span>
+            </button>
+  
+        </div>
+        <div class="center">
+        <form>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="shift StartTime" [(ngModel)]="shift.startTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="endTime" [(ngModel)]="shift.endTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="datetime-local" placeholder="breaktime" [(ngModel)]="shift.breakTime" [ngModelOptions]="{standalone:true}">
+            </div>
+            <div class="row" class="col-md-6">
+                <input type="number" placeholder="breakduration" [(ngModel)]="shift.breakDuration" [ngModelOptions]="{standalone:true}">
+            </div>
+            <br>
+            <button type="button" class="btn btn-success" (click)="addShift(shift)" (click)="modal1.close('Save click')">Add</button> 
+            <button type="button" class="btn btn-info" (click)="modal1.close('Save click')" >Cancel</button>
+        </form>
+    </div>
+  
