@@ -20,8 +20,10 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import {FormsModule} from "@angular/forms";
+import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,14 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     EquipementsComponent,
     LoginComponent,
     SignUpComponent,
-    EditAccountsComponent
+    EditAccountsComponent,
+    EvaluationTrainingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    MatLegacyFormFieldModule
     BrowserAnimationsModule,   
      HttpClientModule,
      ReactiveFormsModule,
