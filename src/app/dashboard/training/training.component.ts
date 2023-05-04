@@ -3,53 +3,76 @@ import {Training} from "../modal/training";
 import {FormationService} from "../services/formation.service";
 
 
+
 @Component({
   selector: 'app-training',
   templateUrl: './training.component.html',
   styleUrls: ['./training.component.css']
 })
 
+export class TrainingComponent implements OnInit {
 
-export class TrainingComponent {
+  photoFile: File | undefined;
+  listTrainings: any;
+  editFormVisible: boolean = false;
+  newTraining: Training = new Training();
 
-  listProducts : any;
-  form : boolean = false;
-  training!: Training;
-  closeResult! : string;
-
-  constructor(private productService : FormationService) { }
+  constructor(private trainingService: FormationService) { }
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.getAllTrainings();
   }
 
-  getAllProducts(){
-    this.productService.getTrainingList().subscribe(res => this.listProducts = res)
+  getAllTrainings() {
+    this.trainingService.getTrainingList().subscribe(res => this.listTrainings = res)
   }
 
-  addProduct(p: any){
-    this.productService.addTraining(p).subscribe(() => {
-      this.getAllProducts();
-      this.form = false;
+  showAddForm() {
+    this.editFormVisible = true;
+  }
+
+  hideAddForm() {
+  //  this.newTraining = new Training();
+    this.editFormVisible = false;
+  }
+
+  addTraining(newTraining: Training) {
+    this.trainingService.addTraining(newTraining).subscribe(() => {
+
+      this.newTraining = new Training();
+      this.editFormVisible = false;
+      this.getAllTrainings();
+      this.editFormVisible = false;
     });
   }
 
-  editProduct(product : Training){
-    this.productService.updateTraining(product).subscribe();
-  }
-  deleteProduct(idProduct : any){
-    this.productService.deleteTraining(idProduct).subscribe(() => this.getAllProducts())
+  editTraining(t: Training) {
+    this.trainingService.updateTraining(t).subscribe();
+    this.editFormVisible = false;
   }
 
-
-
-
-
-  closeForm(){
-// Logic to close the form
+  deleteTraining(idT: any) {
+    this.trainingService.deleteTraining(idT).subscribe(() => this.getAllTrainings())
   }
 
-  cancel(){
-    this.form = false;
-  }
+
+
+  // onFileSelected(event: any) {
+  //   this.photoFile = event.target.files[0];
+  // }
+  //
+  // uploadImage(event: any, idFormation: number) {
+  //   const file = event.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('image', file);
+  //
+  //   this.trainingService.uploadImage(formData, idFormation).subscribe(
+  //     (res) => {
+  //       // handle success response
+  //     },
+  //     (err) => {
+  //       // handle error response
+  //     }
+  //   );
+  // }
 }

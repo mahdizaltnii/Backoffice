@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 import {Training} from "../modal/training";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class FormationService {
   }
 
   addTraining(training: Training): Observable<Training> {
-    return this.http.post<Training>(`${this.baseUrl}`, training);
+    return this.http.post<Training>(`${this.baseUrl}/addFormation`, training);
   }
 
   updateTraining(training: Training): Observable<Training> {
@@ -25,10 +25,20 @@ export class FormationService {
   }
 
   deleteTraining(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}/deleteFormationAndAssociatedQuizzs/${id}`);
   }
   getTrainingById(id:number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`)
   }
+
+  // uploadImage(formData: FormData, idFormation: number): Observable<any> {
+  //   return this.http.post<any>(`${this.baseUrl}/uploadAndAssignImageToFormation/${idFormation}`, formData);
+  // }
+
+
+
+
+
+
 
 }

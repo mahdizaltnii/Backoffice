@@ -21,6 +21,8 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import {FormsModule} from "@angular/forms";
+import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 
 @NgModule({
   declarations: [
@@ -40,15 +42,17 @@ import {FormsModule} from "@angular/forms";
     EquipementsComponent,
     LoginComponent,
     SignUpComponent,
-    EditAccountsComponent
+    EditAccountsComponent,
+    EvaluationTrainingComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-      HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatLegacyFormFieldModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
