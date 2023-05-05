@@ -24,14 +24,11 @@ import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
 import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
 import { ShiftService } from './services/shift.service';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from "@angular/forms";
-import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
 import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -54,7 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShiftsComponent,
     LeaveAuthComponent,
     InternshipRequestComponent
-    EvaluationTrainingComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -65,9 +62,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     NgbModalModule,
     RouterModule,
-    ReactiveFormsModule,
-    MatLegacyFormFieldModule
-    
+    ReactiveFormsModule    
   ],
   providers: [ShiftService],
   bootstrap: [AppComponent]
