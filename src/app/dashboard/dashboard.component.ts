@@ -10,21 +10,7 @@ export class DashboardComponent {
   showContent = true;
    openSideBar = true;
    constructor(private router: Router) {
-     this.router.events.subscribe(event => {
-       if (event instanceof NavigationEnd) {
-         if ((event.url === '/apointement') || 
-          (event.url === '/doctors')|| 
-          (event.url === '/training')|| 
-          (event.url === '/patients')|| 
-          (event.url === '/equipement')||
-          (event.url === '/EditAccount')       
-          ) {
-           this.showContent = false;
-         } else {
-           this.showContent = true;
-         }
-       }
-     });
+    
    }
 
    logout() {

@@ -22,6 +22,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
+import { AddUserComponent } from './dashboard/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     EquipementsComponent,
     LoginComponent,
     SignUpComponent,
-    EditAccountsComponent
+    EditAccountsComponent,
+    SharedLayoutsComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

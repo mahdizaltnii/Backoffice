@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a class="item-link" routerLink="/Dashboard"><span class="link-icon icofont-thermometer-alt"></span>
+            <a class="item-link"  (click)="navigateToDefault()"><span class="link-icon icofont-thermometer-alt"></span>
             </a>
           </li>
           <li class="menu-item">
@@ -71,15 +71,15 @@
             <span class="group-title">Laboratory</span>
           </li>
           <li class="menu-item">
-            <a class="item-link" routerLink="/dashboard"><span class="link-icon icofont-thermometer-alt"></span>
+            <a class="item-link" routerLink="/dashboard" ><span class="link-icon icofont-thermometer-alt"></span>
               <span class="link-text">Dashboard</span></a>
           </li>
           <li class="menu-item">
-            <a class="item-link" routerLink="/apointement"><span class="link-icon icofont-stethoscope-alt"></span>
+            <a class="item-link" routerLink="/apointement" (click)="navigateToAppointements()"><span class="link-icon icofont-stethoscope-alt"></span>
               <span class="link-text">Appointments</span></a>
           </li>
           <li class="menu-item">
-            <a class="item-link" routerLink="/doctors"><span class="link-icon icofont-doctor"></span>
+            <a class="item-link" routerLink="/dashboard//doctors"><span class="link-icon icofont-doctor"></span>
               <span class="link-text">Doctors</span></a>
           </li>
           <li class="menu-item">
@@ -99,10 +99,10 @@
       </nav>
     </div>
 
-    <div class="add-patient" *ngIf="openSideBar">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-patient" style="width:100%"
-        routerLink="/signup">
-
+    <div class="add-patient" (click)="onOpenPopup()" >
+      <button class="btn btn-primary"   style="width:100%"
+        >
+       
         <span class="btn-icon icofont-plus me-2"></span> Add Patient
       </button>
     </div>
@@ -158,3 +158,4 @@
     </div>
   </div>
 </div>
+<app-add-user *ngIf="patient"></app-add-user>

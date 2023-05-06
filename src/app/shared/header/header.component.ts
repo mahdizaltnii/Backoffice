@@ -18,6 +18,8 @@ export class HeaderComponent {
     this.router.navigateByUrl('/');
   } 
   
-  
+  navigateToEditAccount() {
+    this.router.navigate(['dashboard', 'EditAccount']);
+  }
   
 }

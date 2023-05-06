@@ -19,11 +19,9 @@
           </div>
           <div class="main-content-wrap">
   
-            <div class="page-content" *ngIf="showContent">
-              <app-top-cards></app-top-cards>
-              <app-hospital-survey></app-hospital-survey>
-              <app-patients-details></app-patients-details> 
-              <app-last-appointements></app-last-appointements>
+            <div class="page-content" >
+              <router-outlet></router-outlet>
+
               
             </div>
             

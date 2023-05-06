@@ -10,17 +10,27 @@ import { PatientsComponent } from './dashboard/patients/patients.component';
 import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { AppComponent } from './app.component';
+import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
 
  const routes: Routes = [
   { path: '', component:LoginComponent  },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'apointement', component: AppointementsComponent },
+  { path: 'dashboard', component: DashboardComponent,
+  children: [
+    { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'equipement', component: EquipementsComponent },
   { path: 'patients', component: PatientsComponent },
   { path: 'doctors', component: DoctorsComponent },
-  { path: 'EditAccount', component: EditAccountsComponent }
+  { path: 'EditAccount', component: EditAccountsComponent }, 
+  { path: '', component: SharedLayoutsComponent }
+  
+
+  ]
+
+},
+  { path: 'signup', component: SignUpComponent },
+  
+ 
 ];
 
 @NgModule({
