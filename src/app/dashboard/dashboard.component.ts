@@ -7,8 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-<<<<<<< Updated upstream
-=======
+
   showContent = true;
    openSideBar = true;
    constructor(private router: Router) {
@@ -20,7 +19,8 @@ export class DashboardComponent {
           (event.url === '/training')|| 
           (event.url === '/patients')|| 
           (event.url === '/equipement')||
-          (event.url === '/evaluation-training')||
+          (event.url === '/evaluation')||
+          (event.url === '/quizz')||
           (event.url === '/EditAccount')       
           ) {
            this.showContent = false;
@@ -30,7 +30,11 @@ export class DashboardComponent {
        }
      });
    }
->>>>>>> Stashed changes
 
 
+
+
+   logout() {
+    localStorage.removeItem('token');
+  } 
 }

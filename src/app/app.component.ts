@@ -8,28 +8,7 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'BackOffice';
-<<<<<<< Updated upstream
-  showContent = true;
-  openSideBar = true;
-  constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if ((event.url === '/apointement') || 
-         (event.url === '/doctors')|| 
-         (event.url === '/training')|| 
-         (event.url === '/patients')|| 
-         (event.url === '/equipement')||
-         (event.url === '/EditAccount')
-         
-         ) {
-          this.showContent = false;
-        } else {
-          this.showContent = true;
-        }
-      }
-    });
-  }
-=======
+
    showContent = true;
    openSideBar = true;
    constructor(private router: Router) {
@@ -41,7 +20,7 @@ export class AppComponent {
           (event.url === '/patients')|| 
           (event.url === '/equipement')||
           (event.url === '/EditAccount')||
-          (event.url === '/evaluation-training')
+          (event.url === '/evaluation')
           ) {
            this.showContent = false;
          } else {
@@ -50,7 +29,5 @@ export class AppComponent {
        }
      });
    }
->>>>>>> Stashed changes
-
   
 }

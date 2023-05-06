@@ -15,6 +15,7 @@ import { CertificationComponent } from './dashboard/certification/certification.
 
 
  const routes: Routes = [
+   { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
@@ -24,17 +25,14 @@ import { CertificationComponent } from './dashboard/certification/certification.
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
    { path: 'signup', component: SignUpComponent },
-<<<<<<< Updated upstream
 
-   { path: 'evaluation', component: EvaluationTrainingComponent}
-=======
    { path: 'evaluation', component: EvaluationComponent},
    { path: 'quizz', component: QuizzComponent},
    { path: 'certification', component: CertificationComponent}
->>>>>>> Stashed changes
-
 
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

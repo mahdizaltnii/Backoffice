@@ -21,14 +21,11 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import {FormsModule} from "@angular/forms";
-<<<<<<< Updated upstream
 import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
-import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
-=======
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { EvaluationComponent } from './dashboard/evaluation/evaluation.component';
->>>>>>> Stashed changes
+
 
 @NgModule({
   declarations: [
@@ -51,18 +48,34 @@ import { EvaluationComponent } from './dashboard/evaluation/evaluation.component
     EditAccountsComponent,
     EvaluationComponent,
     QuizzComponent,
-    EvaluationComponent
-  ]
-  ,
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    DashboardComponent,
+    TopCardsComponent,
+    HospitalSurveyComponent,
+    LastAppointementsComponent,
+    PatientsDetailsComponent,
+    AppointementsComponent,
+    DoctorsComponent,
+    PatientsComponent,
+    TrainingComponent,
+    EquipementsComponent,
+    LoginComponent,
+    SignUpComponent,
+    EditAccountsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    MatLegacyFormFieldModule
+    MatLegacyFormFieldModule,
+    BrowserAnimationsModule,   
+     HttpClientModule,
+     ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
