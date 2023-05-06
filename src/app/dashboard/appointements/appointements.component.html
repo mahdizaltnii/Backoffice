@@ -1,6 +1,6 @@
 
-<div class="main-content-wrap">
-  <header class="page-header"><h1 class="page-title">Appointments</h1></header>
+<div class="main-content-wrap" style="padding:40px">
+  <header class="page-header"><h1 class="page-title" style="text-align: center;">Appointments</h1></header>
   <div class="page-content">
     <div class="card mb-0" style="border: none;">
       <div class="card-body">
@@ -11,16 +11,16 @@
                 <th scope="col">Photo</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Date</th>
+                <th scope="col">Request date</th>
                 <th scope="col">Visit time</th>
                 <th scope="col">Number</th>
                 <th scope="col">Doctor</th>
-                <th scope="col">Injury / Condition</th>
+                <th scope="col">Status</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let item of RVliste">
                 <td>
                   <img
                     src="../assets/content/user-40-1.jpg"
@@ -34,19 +34,20 @@
                 <td>
                   <div class="d-flex align-items-center nowrap text-primary">
                     <span class="icofont-ui-email p-0 me-2"></span>
-                    liam@gmail.com
+                    {{item.email}}
                   </div>
                 </td>
-                <td><div class="text-muted text-nowrap">10 Feb 2018</div></td>
-                <td><div class="text-muted text-nowrap">9:15 - 9:45</div></td>
+                <td><div class="text-muted text-nowrap">{{item.requestDate}}</div></td>
                 <td>
                   <div class="d-flex align-items-center nowrap text-primary">
                     <span class="icofont-ui-cell-phone p-0 me-2"></span>
                     0126595743
                   </div>
                 </td>
+                <td></td>
                 <td>Dr. Benjamin</td>
-                <td>mumps</td>
+                <td *ngIf="item.is_Validated_By_Admin" style="color: green; font-weight: bold;">{{item.status}}</td>
+                <td *ngIf="!item.is_Validated_By_Admin" style="color: red; font-weight: bold;">{{item.status}}</td>
                 <td>
                   <div class="actions">
                     <button class="btn btn-info btn-sm btn-square rounded-pill">
@@ -59,6 +60,7 @@
                     </button>
                   </div>
                 </td>
+                
               </tr>
               <!-- <tr>
                 <td>
@@ -460,7 +462,7 @@
         data-bs-toggle="modal"
         data-bs-target="#add-appointment"
       >
-        <span class="btn-icon icofont-stethoscope-alt"></span>
+      <span class="btn-icon icofont-plus"></span>
       </button>
     </div>
   </div>
