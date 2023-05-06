@@ -9,9 +9,9 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { PatientsComponent } from './dashboard/patients/patients.component';
 import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
-import {
-  EvaluationTrainingComponent
-} from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
+import { EvaluationComponent} from "./dashboard/evaluation/evaluation.component";
+import { QuizzComponent } from './dashboard/quizz/quizz.component';
+import { CertificationComponent } from './dashboard/certification/certification.component';
 
 
  const routes: Routes = [
@@ -24,8 +24,14 @@ import {
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
    { path: 'signup', component: SignUpComponent },
+<<<<<<< Updated upstream
 
    { path: 'evaluation', component: EvaluationTrainingComponent}
+=======
+   { path: 'evaluation', component: EvaluationComponent},
+   { path: 'quizz', component: QuizzComponent},
+   { path: 'certification', component: CertificationComponent}
+>>>>>>> Stashed changes
 
 
 ];

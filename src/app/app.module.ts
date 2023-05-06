@@ -21,8 +21,14 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import {FormsModule} from "@angular/forms";
+<<<<<<< Updated upstream
 import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
 import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
+=======
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuizzComponent } from './dashboard/quizz/quizz.component';
+import { EvaluationComponent } from './dashboard/evaluation/evaluation.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -43,8 +49,11 @@ import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/eval
     LoginComponent,
     SignUpComponent,
     EditAccountsComponent,
-    EvaluationTrainingComponent
-  ],
+    EvaluationComponent,
+    QuizzComponent,
+    EvaluationComponent
+  ]
+  ,
   imports: [
     BrowserModule,
     AppRoutingModule,

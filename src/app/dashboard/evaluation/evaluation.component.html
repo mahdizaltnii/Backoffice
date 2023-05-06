@@ -1,0 +1,98 @@
+<div class="container scrollable-container "  >
+
+    <form  >
+    
+        <table [border]="0" cellpadding="10">
+          <tr>
+            <td>
+              <p>1) Were the training objectives clearly defined at the beginning of the training?</p>
+              <p><input type="radio" name="question_1"  value="10"   id="question_1"  [(ngModel)]="newEvaluation.question1" [ngModelOptions]="{ standalone: true }  "  required/><label>Yes</label></p>
+              <p><input type="radio" name="question_1" value="0"   id="question_1"  [(ngModel)]="newEvaluation.question1" [ngModelOptions]="{ standalone: true } "required/><label>No</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>2) I would recommend this training to my colleagues</p>
+              <p><input type="radio" name="question_2" value="10"  id="question_2"  [(ngModel)]="newEvaluation.question2" [ngModelOptions]="{ standalone: true } "required/><label>Yes</label></p>
+              <p><input type="radio" name="question_2"  value="0"  id="question_2"  [(ngModel)]="newEvaluation.question2" [ngModelOptions]="{ standalone: true }" required/><label>No</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <p>3) Did the level of the former seem to you:</p>
+              <p><input type="radio" name="question_3"  value="0"  id="question_3"  [(ngModel)]="newEvaluation.question3" [ngModelOptions]="{ standalone: true } "required/><label>Bad</label></p>
+              <p><input type="radio" name="question_3"  value="5"  id="question_3"  [(ngModel)]="newEvaluation.question3" [ngModelOptions]="{ standalone: true } "required/><label>Good</label></p>
+              <p><input type="radio" name="question_3" value="10"  id="question_3"  [(ngModel)]="newEvaluation.question3" [ngModelOptions]="{ standalone: true }"required/><label>Very Good</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>4) Did the trainers use a language:</p>
+              <p><input type="radio" name="question_4"  value="0"   id="question_4"  [(ngModel)]="newEvaluation.question4" [ngModelOptions]="{ standalone: true }"required/><label>Too simple</label></p>
+              <p><input type="radio" name="question_4"  value="5"  id="question_4"  [(ngModel)]="newEvaluation.question4" [ngModelOptions]="{ standalone: true } "required/><label>Adapted</label></p>
+              <p><input type="radio" name="question_4"  value="10" id="question_4"  [(ngModel)]="newEvaluation.question4" [ngModelOptions]="{ standalone: true } " required/><label>Too technical</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>5 ) How would you rate the skills demonstrated by the former?</p>
+              <p><input type="radio" name="question_5" value="20"  id="question_5"  [(ngModel)]="newEvaluation.question5" [ngModelOptions]="{ standalone: true } " required/><label>Extremely competent </label></p>
+              <p><input type="radio" name="question_5"  value="15"  id="question_5"  [(ngModel)]="newEvaluation.question5" [ngModelOptions]="{ standalone: true } "required/><label>Very competent</label></p>
+              <p><input type="radio" name="question_5"  value="10"  id="question_5"  [(ngModel)]="newEvaluation.question5" [ngModelOptions]="{ standalone: true } "required/><label>Quite competent</label></p>
+              <p><input type="radio" name="question_5"  value="5"  id="question_5"  [(ngModel)]="newEvaluation.question5" [ngModelOptions]="{ standalone: true } "required/><label>Not very competent</label></p>
+              <p><input type="radio" name="question_5"  value="0"  id="question_5"  [(ngModel)]="newEvaluation.question5" [ngModelOptions]="{ standalone: true } "required/><label>Not at all competent</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>6) Did the alternation of “theory” moments with practical work seem balanced to you?</p>
+              <p><input type="radio" name="question_6" value="10"  id="question_6"  [(ngModel)]="newEvaluation.question6" [ngModelOptions]="{ standalone: true } "required/><label>Yes</label></p>
+              <p><input type="radio" name="question_6"  value="0"  id="question_6"  [(ngModel)]="newEvaluation.question6" [ngModelOptions]="{ standalone: true } " required/><label>No</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>7) Overall, what do you think of the availability the  former?</p>
+              <p><input type="radio" name="question_7"  value="0"  id="question_7"  [(ngModel)]="newEvaluation.question7" [ngModelOptions]="{ standalone: true } "required/><label>Very bad</label></p>
+              <p><input type="radio" name="question_7"  value="5"  id="question_7"  [(ngModel)]="newEvaluation.question7" [ngModelOptions]="{ standalone: true } " required/><label>Bad</label></p>
+              <p><input type="radio" name="question_7"  value="10"  id="question_7"  [(ngModel)]="newEvaluation.question7" [ngModelOptions]="{ standalone: true } "required/><label>Neither bad nor good</label></p>
+              <p><input type="radio" name="question_7"  value="15"  id="question_7"  [(ngModel)]="newEvaluation.question7" [ngModelOptions]="{ standalone: true } "required/><label>Good</label></p>
+              <p><input type="radio" name="question_7"  value="20"  id="question_7"  [(ngModel)]="newEvaluation.question7" [ngModelOptions]="{ standalone: true } "required/><label>Very good</label></p>
+            </td>
+          </tr>
+         
+          <tr>
+            <td>
+              <p>8) What part of the training would you have liked to see more developed?</p>
+                <p><input type="checkbox"  name="question_8c1"  [(ngModel)]="newEvaluation.question8c1" [ngModelOptions]="{ standalone: true } "required/><label>Partie 1</label></p>
+                <p><input type="checkbox"  name="question_8c2" [(ngModel)]="newEvaluation.question8c2" [ngModelOptions]="{ standalone: true } "required/><label>Partie 2</label></p>
+                <p><input type="checkbox"  name="question_8c3" [(ngModel)]="newEvaluation.question8c3" [ngModelOptions]="{ standalone: true } "required/><label>Partie 3</label></p>
+            </td>
+            </tr>
+           
+          
+          <tr>
+            <td>
+              <p>9) In your opinion, were the objectives of the training achieved?</p>
+              <p><input type="radio" name="question_9" value="10"  id="question_9"  [(ngModel)]="newEvaluation.question9" [ngModelOptions]="{ standalone: true } " required/><label>Oui</label></p>
+              <p><input type="radio" name="question_9" value="0" id="question_9"  [(ngModel)]="newEvaluation.question9" [ngModelOptions]="{ standalone: true } "required/><label>Non</label></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>10)  Please provide your comments, if you have one :</p>
+              <p>
+                <textarea field="*{comment}" rows="5" cols="80" id="comment"  [(ngModel)]="newEvaluation.comment" [ngModelOptions]="{ standalone: true } "></textarea>
+              </p>
+            </td>
+          </tr>
+        <input type="hidden" name="created_at"  id="created_at"  [(ngModel)]="newEvaluation.createdAt" [ngModelOptions]="{ standalone: true } " />
+        <input type="hidden" name="idtrainer"  id="idtrainer"   value ="7"/>
+        <input type="hidden" name="idlearner"  id="idlearner"   value ="3" />
+
+          <tr>
+          <td colspan="2"><button type="submit" class="btn primary"   (click)="saveFeedback(newEvaluation)"  >Send Evaluation</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>

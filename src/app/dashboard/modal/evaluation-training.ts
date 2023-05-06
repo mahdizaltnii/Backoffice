@@ -12,7 +12,7 @@ export class EvaluationTraining {
    created_at!: Date
 
 
-  saveFeedback(value: any) {
+ // saveFeedback(value: any) {
 
-  }
+ // }
 }

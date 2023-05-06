@@ -1,4 +1,3 @@
-import {Image} from "./image";
 
 export class Training {
     id!: number;
@@ -7,7 +6,6 @@ export class Training {
     end_date!: Date;
     period!: string;
     cost!: number;
-    image !: any;
 
 
 }

@@ -32,7 +32,7 @@ export class TrainingComponent implements OnInit {
   }
 
   hideAddForm() {
-  //  this.newTraining = new Training();
+    this.newTraining = new Training();
     this.editFormVisible = false;
   }
 
