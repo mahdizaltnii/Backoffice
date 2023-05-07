@@ -17,7 +17,7 @@ export class EquipmentsService {
     const options = { withCredentials: true };
     return this.http.get('http://localhost:8083/equipement/getequipments')
   }
-
+// first 
 public addEquipment(equipement :Equipement): Observable<Equipement>{
   
   return this.http.post<Equipement>(`${this.apiserverUrl}/addequipement`,equipement);
