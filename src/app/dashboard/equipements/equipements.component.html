@@ -1,1 +1,72 @@
-<p>equipements works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Equipment ID</th>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Description</th>
+      <th>Manufacture Date</th>
+      <th>End of Usefull Life Date</th>
+      <th>Favorite</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let equipment of equipments" [class.selected]="equipment === selectedEquipment" (click)="onSelect(equipment)">
+      <td>{{ equipment.idEquipment }}</td>
+      <td>{{ equipment.nameequipment }}</td>
+      <td>{{ equipment.picture }}</td>
+      <td>{{ equipment.description }}</td>
+      <td>{{ equipment.dateManufacture | date }}</td>
+      <td>{{ equipment.dateEndUsefullLife | date }}</td>
+      <td>{{ equipment.favorite }}</td>
+      <td>{{ equipment.status }}</td>
+      <td>
+        <button (click)="UpdateEquipment(equipment)">Edit</button>
+        <button (click)="deleteEquipment(equipment.idEquipment)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Add/Edit equipment form
+<div *ngIf="showForm">
+  <h2>{{ formTitle }}</h2>
+  <form (submit)="submitForm()">
+    <label>
+      Name:
+      <input type="text" name="name" [(ngModel)]="equipments.nameequipment">
+    </label>
+    <label>
+      Picture:
+      <input type="text" name="picture" [(ngModel)]="equipments.picture">
+    </label>
+    <label>
+      Description:
+      <textarea name="description" [(ngModel)]="equipments.description"></textarea>
+    </label>
+    <label>
+      Manufacture Date:
+      <input type="date" name="dateManufacture" [(ngModel)]="equipments.dateManufacture">
+    </label>
+    <label>
+      End of Usefull Life Date:
+      <input type="date" name="dateEndUsefullLife" [(ngModel)]="equipments.dateEndUsefullLife">
+    </label>
+    <label>
+      Favorite:
+      <input type="checkbox" name="favorite" [(ngModel)]="equipments.favorite">
+    </label>
+    <label>
+      Status:
+      <select name="status" [(ngModel)]="equipments.status">
+        <option value="Available">Available</option>
+        <option value="Expiredr">Out of Order</option>
+        <option value="WillBeExpired">Maintenance</option>
+      </select>
+    </label>
+    <button type="submit">{{ formAction }}</button>
+    <button type="button" (click)="cancelForm()">Cancel</button>
+  </form>
+</div> -->
