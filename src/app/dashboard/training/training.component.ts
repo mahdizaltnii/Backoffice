@@ -101,13 +101,42 @@ export class TrainingComponent implements OnInit {
 
       this.newQuestion = new QuestQuizz();
       console.log(this.newQuestion);
-      this.trainingService.getQuizzs(idQuizz).subscribe((questions) => {
-        this.selectedQuizz.quest_quizs = questions;
+     
 
-      });
        
     });
   }
+
+
+
+
+  addQuestionWithPropositions() {
+    // Create a new QuestQuizz object with the question and propositions
+    const newQuestQuizz: QuestQuizz = {
+      id: this.newQuestion.id,
+      quizz :this.selectedQuizz,
+      question: this.newQuestion.question,
+      propositions: [this.proposition1, this.proposition2, this.proposition3]
+    };
+
+    // Assign the new QuestQuizz to the selected quiz or handle it according to your logic
+    if (this.selectedQuizz) {
+      // If a quiz is selected, add the question with propositions to the selected quiz
+      this.addAndAssignQuestionQuizz(this.selectedQuizz.id, newQuestQuizz);
+    } else {
+      // Handle the case where no quiz is selected
+      // You can display an error message or handle it based on your requirements
+    }
+
+    // Reset the input values
+    this.newQuestion = new QuestQuizz();
+    this.proposition1 = new Proposition();
+    this.proposition2 = new Proposition();
+    this.proposition3 = new Proposition();
+  }
+
+ 
+
 
 
 
