@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -29,6 +28,10 @@ import { RouterModule } from '@angular/router';
 import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
+import { AnalyseCenterComponent } from './dashboard/analyse-center/analyse-center.component';
+import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditAccountsComponent,
     ShiftsComponent,
     LeaveAuthComponent,
-    InternshipRequestComponent
+    InternshipRequestComponent,
+    AnalyseTypeComponent,
+    AnalyseCenterComponent,
+    AppointFullcalanderComponent
     
   ],
   imports: [
@@ -62,7 +68,8 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NgbModalModule,
     RouterModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule   ,
+    FullCalendarModule 
   ],
   providers: [ShiftService],
   bootstrap: [AppComponent]
