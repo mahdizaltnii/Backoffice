@@ -16,25 +16,29 @@ import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 import {
   EvaluationTrainingComponent
 } from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
+import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
+import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
 
 
 
  const routes: Routes = [
   { path: '', component:LoginComponent  },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'apointement', component: AppointementsComponent },
-  { path: 'training', component: TrainingComponent },
-  { path: 'equipements', component: EquipementsComponent },
-  { path: 'patients', component: PatientsComponent },
-  { path: 'doctors', component: DoctorsComponent },
-  { path: 'internships', component: InternshipRequestComponent },
-  { path: 'leaves', component: LeaveAuthComponent },
-  { path: 'ahmed', component: ShiftsComponent },
-   { path: 'login', component: LoginComponent },
-   { path: 'EditAccount', component: EditAccountsComponent },
-   { path: 'signup', component: SignUpComponent },
-   { path: 'evaluation', component: EvaluationTrainingComponent}
+  { path: 'admin/dashboard', component: DashboardComponent },
+  { path: 'admin/signup', component: SignUpComponent },
+  { path: 'admin/apointement', component: AppointementsComponent },
+  { path: 'admin/apointement/fullcalander', component: AppointFullcalanderComponent },
+  { path: 'admin/analyse-type', component: AnalyseTypeComponent },
+  { path: 'admin/training', component: TrainingComponent },
+  { path: 'admin/equipements', component: EquipementsComponent },
+  { path: 'admin/patients', component: PatientsComponent },
+  { path: 'admin/doctors', component: DoctorsComponent },
+  { path: 'admin/internships', component: InternshipRequestComponent },
+  { path: 'admin/leaves', component: LeaveAuthComponent },
+  { path: 'admin/ahmed', component: ShiftsComponent },
+   { path: 'admin/login', component: LoginComponent },
+   { path: 'admin/EditAccount', component: EditAccountsComponent },
+   { path: 'admin/signup', component: SignUpComponent },
+   { path: 'admin/evaluation', component: EvaluationTrainingComponent}
 ];
 
 @NgModule({
