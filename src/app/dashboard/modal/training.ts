@@ -1,11 +1,11 @@
 
 export class Training {
-    id!: number;
-    name!: string;
-    start_date!: Date;
-    end_date!: Date;
-    period!: string;
-    cost!: number;
+    id!: any;
+    name!: any;
+    start_date!: any;
+    end_date!: any;
+    period!: any;
+    cost!: any;
 
 
 }

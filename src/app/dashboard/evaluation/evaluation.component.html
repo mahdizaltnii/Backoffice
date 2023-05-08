@@ -1,6 +1,7 @@
 <div class="container scrollable-container "  >
+  <div *ngIf="!isSubmitted">
 
-    <form  >
+    <form #feedbackForm="ngForm">
     
         <table [border]="0" cellpadding="10">
           <tr>
@@ -95,4 +96,17 @@
           </tr>
         </table>
       </form>
+    </div>
+
+       
+
+      <div *ngIf="isSubmitted" class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p> Thank you for submitting your trainer evaluation!</p>
+        <hr>
+        <p class="mb-0">Your feedback is valuable to us. We appreciate your participation in improving our training programs.</p>
+        <p><a href="/dashbord" >return from this link</a></p>
+      </div>
+
+
     </div>

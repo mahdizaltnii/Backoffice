@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Training} from "../modal/training";
 import {Observable} from "rxjs";
+import { Quizz } from '../modal/quizz';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,16 @@ export class FormationService {
     return this.http.get(`${this.baseUrl}/${id}`)
   }
 
+  getQuizzs(id : number) : Observable<Quizz[]>
+  {
+    return this.http.get<Quizz[]>(`${this.baseUrl}/getQuizzs/${id}`);
+  }
+
   // uploadImage(formData: FormData, idFormation: number): Observable<any> {
   //   return this.http.post<any>(`${this.baseUrl}/uploadAndAssignImageToFormation/${idFormation}`, formData);
   // }
 
-
+ 
 
 
 

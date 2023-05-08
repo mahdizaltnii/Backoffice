@@ -60,5 +60,17 @@
     font-size: initial; /* Reset the font size for the <label> elements to inherit from the parent */
   }
 
-
+  .success-message {
+    background-color: #dff0d8;
+    border: 1px solid rgba(84, 158, 11, 0.842);
+    color: #3c763d;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .success-message p {
+    margin: 0;
+  }
  

@@ -1,1 +1,24 @@
-<p>quizz ***********************  works!</p>
+
+<div class="container scrollable-container">
+    <div class="row">
+<div class="col-md-6" *ngFor="let quizz of listQuizzs">
+    <div class="card">
+      <div class="card-body">
+        <a style="text-align: center;">
+          <h5 class="card-title">{{quizz.title}}</h5>
+          <p></p>
+          <p class="card-text">description: {{quizz.description}}</p>
+          <p class="card-text">training_name: {{quizz.training_name}}</p>
+
+        </a>
+       
+
+
+       
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
