@@ -1,6 +1,4 @@
-
-<!-- <router-outlet></router-outlet> -->
-<!-- <head>
+ <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <meta name="keywords" content="MedicApp" />
@@ -18,7 +16,7 @@
   <link rel="stylesheet" href="/assets/css/morris.css" />
   <link rel="stylesheet" href="/assets/css/leaflet.css" />
   <link rel="stylesheet" href="/assets/css/style.css" />
-</head> -->
+</head>
 <body class="vertical-layout boxed loaded" >
   <div class="app-loader main-loader">
     <div class="loader-box">
@@ -26,27 +24,5 @@
       <div class="text">Medic<span>app</span></div>
     </div>
   </div>
-  <!-- .main-loader -->
-  <div class="page-box"  >
-    <div class="app-container" [ngStyle]="{padding:openSideBar  ? '0 0 0 17.1428571429rem' : '0 0 0 50px' }"   >
-      <!-- Horizontal navbar -->
-      <app-header ></app-header>
-      <!-- end Horizontal navbar --><!-- Vertical navbar -->
-      <app-sidebar (isSidebarOpenChange)="openSideBar = $event"></app-sidebar>
-      <!-- end Vertical navbar -->
-      <main class="main-content">
-        <div class="app-loader">
-          <i class="icofont-spinner-alt-4 rotate"></i>
-        </div>
-        <div class="main-content-wrap">
-
-          <div class="page-content" *ngIf="showContent">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-</body>
-
-
+  <router-outlet></router-outlet> 
+  
