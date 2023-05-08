@@ -36,7 +36,7 @@ public acceptLeave(idl:number): Observable<LeaveAuth>{
   return this.http.put<LeaveAuth>(`${this.apiserverUrl}/acceptLeave/${idl}`,null);
 }
 public refuseLeave(idl:number): Observable<LeaveAuth>{
-  return this.http.put<LeaveAuth>(`${this.apiserverUrl}/refuseLeave /${idl}`,null);
+  return this.http.put<LeaveAuth>(`${this.apiserverUrl}/refuseLeave/${idl}`,null);
 }
 
 public acceptedLeaves(): Observable<LeaveAuth[]>{
