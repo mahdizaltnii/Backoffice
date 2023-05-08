@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,6 @@ import {NavigationEnd, Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'BackOffice';
-
    showContent = true;
    openSideBar = true;
    constructor(private router: Router) {
@@ -28,6 +28,5 @@ export class AppComponent {
          }
        }
      });
-   }
-  
+   }  
 }

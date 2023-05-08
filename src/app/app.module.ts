@@ -26,11 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { EvaluationComponent } from './dashboard/evaluation/evaluation.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-
     HeaderComponent,
     SidebarComponent,
     DashboardComponent,
@@ -73,7 +71,6 @@ import { EvaluationComponent } from './dashboard/evaluation/evaluation.component
     BrowserAnimationsModule,   
      HttpClientModule,
      ReactiveFormsModule,
-
   ],
   providers: [ ],
   bootstrap: [AppComponent]

@@ -13,10 +13,10 @@ import { EvaluationComponent} from "./dashboard/evaluation/evaluation.component"
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { CertificationComponent } from './dashboard/certification/certification.component';
 
-
  const routes: Routes = [
    { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'equipements', component: EquipementsComponent },
@@ -25,14 +25,10 @@ import { CertificationComponent } from './dashboard/certification/certification.
    { path: 'login', component: LoginComponent },
    { path: 'EditAccount', component: EditAccountsComponent },
    { path: 'signup', component: SignUpComponent },
-
    { path: 'evaluation', component: EvaluationComponent},
    { path: 'quizz', component: QuizzComponent},
    { path: 'certification', component: CertificationComponent}
-
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
