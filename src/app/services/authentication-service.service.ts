@@ -50,6 +50,9 @@ export class AuthenticationServiceService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.get<User>(this.apiUrl+'current', { headers });
   }
-  
+  getUserInfo(token: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(this.apiUrl+'info', { headers });
+  }
 
 }

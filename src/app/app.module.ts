@@ -20,7 +20,7 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
 import { AddUserComponent } from './dashboard/add-user/add-user.component';
@@ -52,6 +52,7 @@ import { AddUserComponent } from './dashboard/add-user/add-user.component';
     BrowserAnimationsModule,   
      HttpClientModule,
      ReactiveFormsModule,
+     FormsModule
 
   ],
   providers: [ ],

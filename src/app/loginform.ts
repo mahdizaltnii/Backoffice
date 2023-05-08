@@ -17,10 +17,7 @@ export class AuthentificationRequest {
 
 export class RegisterRequest {
 email!: string;
-password!: string;
-firstName!: string;
-username!: string;
-lastName!: string;
-birthdate!: string;
-adresse!: string;
+firstname!: string;
+lastname!: string;
+ 
 }
