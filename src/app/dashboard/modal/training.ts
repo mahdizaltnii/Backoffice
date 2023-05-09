@@ -1,11 +1,12 @@
+import { Image } from "./image";
 
 export class Training {
-    id!: any;
-    name!: any;
-    start_date!: any;
-    end_date!: any;
-    period!: any;
-    cost!: any;
-
-
+    id!: number;
+    name!: number;
+    start_date!: Date;
+    end_date!: Date;
+    period!: number;
+    cost!: number;
+    img!: Image;
+    imageDataUrl!: string
 }

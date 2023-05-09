@@ -3,42 +3,35 @@
 <div class="container scrollable-container">
   <div *ngIf="!isSubmitted">
 
-  <div class="row">
-    <div class="col-md-6" *ngFor="let training of listTrainings">
-      <div class="card">
-        <img [src]="training.image" alt="Training Image" class="card-img-top">
-        <div class="card-body">
-          <a style="text-align: center;">
-            <h5 class="card-title">{{training.name}}</h5>
-            <p></p>
-            <p class="card-text">Start Date: {{training.start_date}}</p>
-            <p class="card-text">End Date: {{training.end_date}}</p>
-            <p class="card-text">Cost: {{training.cost}}</p>
-            <p class="card-text">Period: {{training.period}}</p>
-          </a>
-          <!--<div style="display: flex; justify-content: center; margin-top:-20px;">
-            <button class="btn btn-primary btn-lg" (click)="editTraining(training)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteTraining(training.id)">Delete</button>
-          </div>-->
-
-
-          <button  (click)="getMoreDetails(training.id)">
-            Show more details
-          </button>
-          <div >
-            <button class="btn btn-info btn-sm btn-square rounded-pill"  (click)="editTraining(training)">
-              <span class="btn-icon icofont-ui-edit"></span>
-            </button>
-            <button  class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteTraining(training.id)">
-              <span class="btn-icon icofont-ui-delete"></span>
-            </button>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let training of listTrainings">
+        <div class="card">
+          <img [src]="training.imageDataUrl" alt="Training Image" class="card-img-top">
+          <div class="card-body">
+            <a style="text-align: center;">
+              <h5 class="card-title">{{training.name}}</h5>
+              <p></p>
+              <p class="card-text">Start Date: {{training.start_date}}</p>
+              <p class="card-text">End Date: {{training.end_date}}</p>
+              <p class="card-text">Cost: {{training.cost}}</p>
+              <p class="card-text">Period: {{training.period}}</p>
+            </a>
+            <a href="javascript:void(0)" (click)="getMoreDetails(training.id)">
+              Show more details
+            </a>
+            <div>
+              <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="editTraining(training)">
+                <span class="btn-icon icofont-ui-edit"></span>
+              </button>
+              <button class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteTraining(training.id)">
+                <span class="btn-icon icofont-ui-delete"></span>
+              </button>
+            </div>
           </div>
-
-
         </div>
       </div>
     </div>
-  </div>
+    
 
 
 
@@ -141,7 +134,7 @@
                 <td>
                   <div >
                     <button class="btn btn-info btn-sm btn-square rounded-pill"  >
-                      <span class="btn-icon icofont-ui-add"></span>
+                      <span class="btn-icon icofont-ui-edit"></span>
                     </button>
                     <button  class="btn btn-error btn-sm btn-square rounded-pill" >
                       <span class="btn-icon icofont-ui-delete"></span>
@@ -172,11 +165,20 @@
                   <table>
                     <tbody>
                       <td>
-                        <p><input type="text" [(ngModel)]="proposition1.is_correct_answer" [ngModelOptions]="{ standalone: true }" required> </p>
-                        <p><input type="text" [(ngModel)]="proposition2.is_correct_answer" [ngModelOptions]="{ standalone: true }" required> </p>
-                        <p><input type="text" [(ngModel)]="proposition3.is_correct_answer" [ngModelOptions]="{ standalone: true }" required> </p>
-                      
+                        <p><select [(ngModel)]="proposition1.is_correct_answer" [ngModelOptions]="{ standalone: true }" (ngModelChange)="updatePropositions(1)" required>
+                          <option [ngValue]="1">True</option>
+                          <option [ngValue]="0">False</option>
+                        </select></p>
+                        <p><select [(ngModel)]="proposition2.is_correct_answer" [ngModelOptions]="{ standalone: true }" (ngModelChange)="updatePropositions(2)" required>
+                          <option [ngValue]="1">True</option>
+                          <option [ngValue]="0">False</option>
+                        </select></p>
+                        <p><select [(ngModel)]="proposition3.is_correct_answer" [ngModelOptions]="{ standalone: true }" (ngModelChange)="updatePropositions(3)" required>
+                          <option [ngValue]="1">True</option>
+                          <option [ngValue]="0">False</option>
+                        </select></p>
                       </td>
+                      
                     </tbody>
                   </table>
                 </td>
@@ -230,50 +232,5 @@
   
    </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-  <div *ngIf="isSubmitted"  >
-   
-    <div class="row">
-      <div class="col-md-6" *ngFor="let quizz of listQuizzs">
-          <div class="card">
-            <div class="card-body">
-              <a style="text-align: center;">
-                <h5 class="card-title">{{quizz.title}}</h5>
-                <p></p>
-                <p class="card-text">description: {{quizz.description}}</p>
-                <p class="card-text">training_name: {{quizz.training_name}}</p>
-                <p class="card-text">training_name: {{quizz.training_name}}</p>
-
-              </a>
-                 
-            </div>
-          </div>
-        </div>
-      </div>
-</div>
-
--->
-
 
 </div>

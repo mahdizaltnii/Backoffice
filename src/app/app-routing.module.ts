@@ -12,7 +12,7 @@ import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { EvaluationComponent} from "./dashboard/evaluation/evaluation.component";
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { CertificationComponent } from './dashboard/certification/certification.component';
-
+import { ImageComponent } from './dashboard/image/image.component';
  const routes: Routes = [
    { path: '', component:LoginComponent  },
   { path: 'dashboard', component: DashboardComponent },
@@ -27,7 +27,9 @@ import { CertificationComponent } from './dashboard/certification/certification.
    { path: 'signup', component: SignUpComponent },
    { path: 'evaluation', component: EvaluationComponent},
    { path: 'quizz', component: QuizzComponent},
-   { path: 'certification', component: CertificationComponent}
+   { path: 'certification', component: CertificationComponent},
+   { path: 'image', component: ImageComponent}
+
 ];
 
 @NgModule({

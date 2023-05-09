@@ -24,6 +24,7 @@ import {MatLegacyFormFieldModule} from "@angular/material/legacy-form-field";
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { EvaluationComponent } from './dashboard/evaluation/evaluation.component';
+import { ImageComponent } from './dashboard/image/image.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EvaluationComponent } from './dashboard/evaluation/evaluation.component
     LoginComponent,
     SignUpComponent,
     EditAccountsComponent,
+    ImageComponent,
   ],
   imports: [
     BrowserModule,

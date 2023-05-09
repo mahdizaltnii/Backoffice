@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { QuizzService } from '../services/quizz.service';
 import { Quizz } from '../modal/quizz';
 import { QuestQuizz } from '../modal/quest-quizz';
@@ -15,7 +15,7 @@ export class QuizzComponent {
   newQuestion : QuestQuizz = new QuestQuizz();
 
 
-  constructor(private quizzService: QuizzService) { }
+  constructor(private quizzService: QuizzService ) { }
 
   ngOnInit(): void {
     this.getAllQuizzs();
@@ -25,6 +25,7 @@ export class QuizzComponent {
 
   getAllQuizzs() {
     this.quizzService.getQuizzsList().subscribe(res => this.listQuizzs = res)
+
   }
 
 
@@ -51,7 +52,6 @@ export class QuizzComponent {
    console.log(this.newQuestion);
 
     this.quizzService.addAndAssignQuestionQuizz(idQuizz,quest ).subscribe(() => {
-       
     });
   }
 

@@ -43,8 +43,9 @@ export class FormationService {
 
  
 
-
-
-
+  getImageById(idF: number)
+  {
+   return this.http.get(`${this.baseUrl}/getImageById/${idF}`, { responseType: 'blob' });
+}
 
 }

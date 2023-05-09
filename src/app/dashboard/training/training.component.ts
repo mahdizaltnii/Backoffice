@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Training} from "../modal/training";
 import {FormationService} from "../services/formation.service";
 import { QuestQuizz } from '../modal/quest-quizz';
 import { QuizzService } from '../services/quizz.service';
 import { Proposition } from '../modal/proposition';
+import { Observable } from 'rxjs';
 
 
 
@@ -16,7 +17,7 @@ import { Proposition } from '../modal/proposition';
 export class TrainingComponent implements OnInit {
 
   photoFile: File | undefined;
-  listTrainings: any;
+  listTrainings: Training[] = [];
   listQuizzs: any;
   editFormVisible: boolean = false;
   newTraining: Training = new Training();
@@ -24,8 +25,9 @@ export class TrainingComponent implements OnInit {
   proposition1: Proposition= new Proposition();
   proposition2: Proposition= new Proposition();
   proposition3: Proposition= new Proposition();
- 
+  imageDataUrl!: string;
 
+training !: Training;
 
 
   public isSubmitted: boolean = false;
@@ -40,8 +42,30 @@ export class TrainingComponent implements OnInit {
   }
 
   getAllTrainings() {
-    this.trainingService.getTrainingList().subscribe(res => this.listTrainings = res)
+    this.trainingService.getTrainingList().subscribe(res => {
+      this.listTrainings = res;
+      this.listTrainings.forEach(training => {
+        this.getImageById(training.id).subscribe(imageDataUrl => {
+          training.imageDataUrl = imageDataUrl;
+        });
+      });
+    });
   }
+  
+  getImageById(idFormation: number): Observable<string> {
+    return new Observable<string>(observer => {
+      this.trainingService.getImageById(idFormation).subscribe((imageBlob: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          const imageDataUrl = reader.result as string;
+          observer.next(imageDataUrl);
+          observer.complete();
+        };
+        reader.readAsDataURL(imageBlob);
+      });
+    });
+  }
+  
 
   showAddForm() {
     this.editFormVisible = true;
@@ -89,8 +113,6 @@ export class TrainingComponent implements OnInit {
   }
 
 
-  
-
 
   addAndAssignQuestionQuizz(idQuizz: number ,newQuestion: QuestQuizz)
   {
@@ -101,6 +123,7 @@ export class TrainingComponent implements OnInit {
 
       this.newQuestion = new QuestQuizz();
       console.log(this.newQuestion);
+
      
 
        
@@ -123,20 +146,35 @@ export class TrainingComponent implements OnInit {
     if (this.selectedQuizz) {
       // If a quiz is selected, add the question with propositions to the selected quiz
       this.addAndAssignQuestionQuizz(this.selectedQuizz.id, newQuestQuizz);
-    } else {
-      // Handle the case where no quiz is selected
-      // You can display an error message or handle it based on your requirements
-    }
+    } 
+
+    this.selectedQuizz.quest_quizs.push(newQuestQuizz);
+
 
     // Reset the input values
     this.newQuestion = new QuestQuizz();
     this.proposition1 = new Proposition();
     this.proposition2 = new Proposition();
     this.proposition3 = new Proposition();
+
+
+
   }
 
  
-
+  updatePropositions(selectedIndex: number) {
+    if (selectedIndex === 1) {
+      this.proposition2.is_correct_answer = 0;
+      this.proposition3.is_correct_answer = 0;
+    } else if (selectedIndex === 2) {
+      this.proposition1.is_correct_answer = 0;
+      this.proposition3.is_correct_answer = 0;
+    } else if (selectedIndex === 3) {
+      this.proposition1.is_correct_answer = 0;
+      this.proposition2.is_correct_answer = 0;
+    }
+  }
+  
 
 
 
@@ -158,4 +196,25 @@ export class TrainingComponent implements OnInit {
   //     }
   //   );
   // }
+
+
+
+
+
+
+/*
+  getImageById(idFormation: number): void {
+    this.trainingService.getImageById(idFormation).subscribe((imageBlob: Blob) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.imageDataUrl = reader.result as string;
+      };
+      reader.readAsDataURL(imageBlob);
+    });
+  }
+
+*/
+
+
+
 }
