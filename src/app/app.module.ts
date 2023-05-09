@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -24,6 +23,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
 import { AddUserComponent } from './dashboard/add-user/add-user.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { ShiftService } from './services/shift.service';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
+import { AnalyseCenterComponent } from './dashboard/analyse-center/analyse-center.component';
+import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -45,17 +57,26 @@ import { AddUserComponent } from './dashboard/add-user/add-user.component';
     EditAccountsComponent,
     SharedLayoutsComponent,
     AddUserComponent
+    ShiftsComponent,
+    LeaveAuthComponent,
+    InternshipRequestComponent,
+    AnalyseTypeComponent,
+    AnalyseCenterComponent,
+    AppointFullcalanderComponent  
   ],
   imports: [
-    BrowserModule,
+   BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,   
-     HttpClientModule,
-     ReactiveFormsModule,
-     FormsModule
-
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+    NgbModalModule,
+    RouterModule,
+    ReactiveFormsModule   ,
+    FullCalendarModule 
   ],
-  providers: [ ],
+  providers: [ShiftService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

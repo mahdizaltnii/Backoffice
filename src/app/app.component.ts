@@ -9,17 +9,21 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'BackOffice';
-   showContent = true;
-   openSideBar = true;
-   constructor(private router: Router) {
-     this.router.events.subscribe(event => {
-       if (event instanceof NavigationEnd) {
-         if ((event.url === '/apointement') || 
-          (event.url === '/doctors')|| 
-          (event.url === '/training')|| 
-          (event.url === '/patients')|| 
-          (event.url === '/equipement')||
-          (event.url === '/EditAccount')
+  showContent = true;
+  openSideBar = true;
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if ((event.url === '/apointement') || 
+         (event.url === '/doctors')|| 
+         (event.url === '/training')|| 
+         (event.url === '/patients')|| 
+         (event.url === '/equipement')||
+         (event.url === '/EditAccount')||
+         (event.url === '/leaves')||
+         (event.url === '/ahmed') ||
+         (event.url === '/internships')
+         
          
           ) {
            this.showContent = false;

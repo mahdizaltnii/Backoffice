@@ -1,467 +1,145 @@
-
 <div class="main-content-wrap">
-  <header class="page-header"><h1 class="page-title">Appointments</h1></header>
+  <header class="page-header">
+    <h1 class="page-title" style="text-align: center;">Appointments</h1>
+  </header>
+  <!--MESSAGE ALERT-->
+  <div *ngIf="msgAdded" class="alert alert-success" role="alert"
+    style="text-align: center; color : white ; font-weight: bold;">
+    Appointement {{msgEdit ? 'Updated' : 'Added'}} successfully.
+  </div>
   <div class="page-content">
     <div class="card mb-0" style="border: none;">
       <div class="card-body">
+        <!--TABLE-->
         <div class="table-responsive">
           <table class="table table-hover">
-            <thead>
+            <thead class="table table-dark">
               <tr>
                 <th scope="col">Photo</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Date</th>
+                <th scope="col">Request date</th>
                 <th scope="col">Visit time</th>
                 <th scope="col">Number</th>
                 <th scope="col">Doctor</th>
-                <th scope="col">Injury / Condition</th>
+                <th scope="col">Status</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let item of RVliste">
                 <td>
-                  <img
-                    src="../assets/content/user-40-1.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
+                  <img src="../assets/content/user-40-1.jpg" alt="" width="40" height="40" class="rounded-500" />
                 </td>
                 <td><strong>Liam</strong></td>
                 <td>
                   <div class="d-flex align-items-center nowrap text-primary">
                     <span class="icofont-ui-email p-0 me-2"></span>
-                    liam@gmail.com
+                    {{item.email}}
                   </div>
                 </td>
-                <td><div class="text-muted text-nowrap">10 Feb 2018</div></td>
-                <td><div class="text-muted text-nowrap">9:15 - 9:45</div></td>
+                <td>
+                  <div class="text-muted text-nowrap">{{item.requestDate}}</div>
+                </td>
                 <td>
                   <div class="d-flex align-items-center nowrap text-primary">
                     <span class="icofont-ui-cell-phone p-0 me-2"></span>
                     0126595743
                   </div>
                 </td>
+                <td></td>
                 <td>Dr. Benjamin</td>
-                <td>mumps</td>
+                <td *ngIf="item.is_Validated_By_Admin" style="color: green; font-weight: bold;">{{item.status}}</td>
+                <td *ngIf="!item.is_Validated_By_Admin" style="color: red; font-weight: bold;">{{item.status}}</td>
                 <td>
                   <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
+                    <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="editDialog(item)"
+                      data-bs-toggle="modal" data-bs-target="#add-appointment">
                       <span class="btn-icon icofont-ui-edit"></span>
                     </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
+                    <button class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteAppointe(item)">
                       <span class="btn-icon icofont-ui-delete"></span>
                     </button>
                   </div>
                 </td>
+
               </tr>
-              <!-- <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-2.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Emma</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    emma@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">5 Dec 2018</div></td>
-                <td><div class="text-muted text-nowrap">9:00 - 9:30</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Liam</td>
-                <td>arthritis</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-3.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Olivia</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    olivia@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">13 Oct 2018</div></td>
-                <td><div class="text-muted text-nowrap">12:00 - 12:45</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Noah</td>
-                <td>depression</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-4.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Ava</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    ava@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">26 Dec 2018</div></td>
-                <td><div class="text-muted text-nowrap">14:15 - 14:30</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Emma</td>
-                <td>diarrhoea</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-5.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Noah</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    noah@gmail.co
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">15 Jun 2018</div></td>
-                <td><div class="text-muted text-nowrap">17:30 - 18:00</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. James</td>
-                <td>dyslexia</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-6.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Isabella</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    isabella@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">2 Jul 2018</div></td>
-                <td><div class="text-muted text-nowrap">10:00 - 10:15</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Noah</td>
-                <td>flu</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-7.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Sophia</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    sophia@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">9 Oct 2018</div></td>
-                <td><div class="text-muted text-nowrap">8:30 - 8:45</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Olivia</td>
-                <td>fracture</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-8.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>Mia</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    mia000@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">17 Mar 2018</div></td>
-                <td><div class="text-muted text-nowrap">11:30 - 11:40</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Emma</td>
-                <td>hypothermia</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-9.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>William</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    william@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">18 Apl 2018</div></td>
-                <td><div class="text-muted text-nowrap">12:15 - 12:45</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Olivia</td>
-                <td>sunburn</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="../assets/content/user-40-10.jpg"
-                    alt=""
-                    width="40"
-                    height="40"
-                    class="rounded-500"
-                  />
-                </td>
-                <td><strong>James</strong></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-email p-0 me-2"></span>
-                    james@gmail.com
-                  </div>
-                </td>
-                <td><div class="text-muted text-nowrap">6 Apl 2018</div></td>
-                <td><div class="text-muted text-nowrap">16:00 - 16:20</div></td>
-                <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
-                </td>
-                <td>Dr. Logan</td>
-                <td>mumps</td>
-                <td>
-                  <div class="actions">
-                    <button class="btn btn-info btn-sm btn-square rounded-pill">
-                      <span class="btn-icon icofont-ui-edit"></span>
-                    </button>
-                    <button
-                      class="btn btn-error btn-sm btn-square rounded-pill"
-                    >
-                      <span class="btn-icon icofont-ui-delete"></span>
-                    </button>
-                  </div>
-                </td>
-              </tr> -->
+
             </tbody>
           </table>
         </div>
+        <!--PAGINATION-->
         <nav class="mt-4">
           <ul class="pagination">
             <li class="page-item disabled">
-              <a
-                class="page-link"
-                href="appointments.html#"
-                aria-label="Previous"
-                style="border-radius: 50%;"
-                tabindex="-1"
-                aria-disabled="true"
-                ><span class="icofont-simple-left"></span
-              ></a>
+              <a class="page-link" href="" aria-label="Previous" style="border-radius: 50%;"
+                tabindex="-1" aria-disabled="true"><span class="icofont-simple-left"></span></a>
             </li>
             <li class="page-item active" aria-current="page">
-              <a class="page-link" href="appointments.html#">1</a>
+              <a class="page-link" href="">1</a>
             </li>
             <li class="page-item">
-              <a class="page-link" href="appointments.html#">2</a>
+              <a class="page-link" href="">2</a>
             </li>
             <li class="page-item">
-              <a class="page-link" href="appointments.html#">3</a>
+              <a class="page-link" href="">3</a>
             </li>
             <li class="page-item">
-              <a class="page-link" href="appointments.html#" aria-label="Next"   style="border-radius: 50%;"
-                ><span class="icofont-simple-right"></span
-              ></a>
+              <a class="page-link" href="" aria-label="Next" style="border-radius: 50%;"><span
+                  class="icofont-simple-right"></span></a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
+    <!--BUTTON , FIX BUTTON AJOUT AVEC L ICON + -->
     <div class="add-action-box">
-      <button
-        class="btn btn-primary btn-lg btn-square rounded-pill"
-        data-bs-toggle="modal"
-        data-bs-target="#add-appointment"
-      >
-        <span class="btn-icon icofont-stethoscope-alt"></span>
+      <button class="btn btn-primary btn-lg btn-square rounded-pill" data-bs-toggle="modal"
+        data-bs-target="#add-appointment">
+        <span class="btn-icon icofont-plus"></span>
       </button>
+    </div>
+    <!--DIALOG POUR ADD ET EDIT SELON LA CONDITION 'this.edit'-->
+    <div class="modal fade" id="add-appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="!edit">Add appointment</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel" *ngIf="edit">Edit appointment</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <label>Request date</label>
+                <input type="datetime-local" class="form-control" name="requestDate" [(ngModel)]="appoint.requestDate">
+              </div>
+              <div class="col-12">
+                <label>Appointment date</label>
+                <input type="datetime-local" class="form-control" name="appointmentDate" [(ngModel)]="appoint.appointmentDate">
+              </div>
+
+
+
+
+
+              <div class="col-12">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="appoint.email">
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addAppoint()">{{edit ? 'Edit'
+              : 'Save'}} </button>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
