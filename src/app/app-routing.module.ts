@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {LoginComponent} from "./login/login.component";
-import {SignUpComponent} from "./sign-up/sign-up.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { AppointementsComponent } from './dashboard/appointements/appointements.component';
 import { TrainingComponent } from './dashboard/training/training.component';
 import { EquipementsComponent } from './dashboard/equipements/equipements.component';
@@ -17,6 +17,11 @@ import { InternshipRequestComponent } from './dashboard/internship-request/inter
 import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
 import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 import { EvaluationTrainingComponent} from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
+
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
 import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
  
@@ -52,6 +57,6 @@ const routes: Routes = [
  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
