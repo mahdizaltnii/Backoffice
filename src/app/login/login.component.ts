@@ -6,6 +6,7 @@ import {AuthenticationServiceService} from "../services/authentication-service.s
 import { AuthentificationRequest, AuthentificationResponse } from "../loginform";
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../services/storage.service';
+import { User } from '../user';
 
 
 
@@ -23,7 +24,7 @@ export class LoginComponent  {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles!: string[] ;
   
   constructor(private authService: AuthenticationServiceService, private router: Router,private storageService: StorageService) {
     
@@ -33,69 +34,82 @@ export class LoginComponent  {
     this.myForm = new FormGroup({
       email : new FormControl,
       password : new FormControl()
+
     })
-    // if (this.storageService.isLoggedIn()) {
-    //   this.isLoggedIn = true;
-    //   this.roles = this.storageService.getUser().roles;
-      
-    // }
+   
+
   }
 
  
 
-//   onSubmit(): void {
-//  //const request = new AuthentificationRequest();
-// // request.email = this.email;
-// // request.password = this.password;
-//   console.log(this.myForm.value)
-//   this.authService.authenticate(this.myForm.value).subscribe(
-//     response => { console.log(response)
-//        // Authentication successful
-//          const token = response.token;
-// //       // Do something with the token
-//          localStorage.setItem('token', token);//save the token in local storage
-//         console.log(token); //log the token to the console
-//         this.loggedIn.next(true);
-//         this.getCurrentUser();
-   
-        
-//          this.router.navigateByUrl('/dashboard');
-//        },
-//        error => {
-//        // Authentication failed
-//          console.error(error);
-//        }
-//     );
-//     }
+   onSubmit(): void {
+ 
+   console.log(this.myForm.value)
+   this.authService.authenticate(this.myForm.value).subscribe(
+     response => { console.log(response)
+       //  Authentication successful
+          const token = response.token;
+        // Do something with the token
+          localStorage.setItem('token', token);//save the token in local storage
+         console.log(token); //log the token to the console
+          this.authService.getUserInfo(token).subscribe(
+           (data: any) => {
+              console.log(data.roles)
 
-    // getCurrentUser() {
-    //   this.authService.getCurrentUser().subscribe(user => {
-    //     console.log(user);
-    //   });
-    // }
-  onSubmit(): void {
-    console.log(this.myForm.value)
-
-    this.authService.authenticate(this.myForm.value).subscribe({
-      next: data => {
-        this.storageService.saveUser(data);
-        console.log(data)
-        console.log(this.storageService.saveUser(data))
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.storageService.getUser();
-        this.router.navigateByUrl('/dashboard');
-        console.log('User details:', this.storageService.getUser()); // print role information in console
-        console.log(this.isLoggedIn)
+             
+           },
+           error => {
+             console.log(error);
+           }
+          );
+         this.loggedIn.next(true);
     
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
+        
+          this.router.navigateByUrl('/dashboard');
+        },
+        error => {
+        // Authentication failed
+          console.error(error);
+        }
+     );
+     }
 
-    });
+     
+  sendPasswordResetEmail() {
+    this.authService.sendPasswordResetEmail(this.myForm.value.email).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.error(error);
+      }
+    );
   }
+  // onSubmit(): void {
+  //   console.log(this.myForm.value)
+
+  //   this.authService.authenticate(this.myForm.value).subscribe({
+  //     next: data => {
+  //       this.storageService.saveUser(data);
+  //       console.log(data)
+  //       console.log(this.storageService.saveUser(data))
+  //       this.isLoginFailed = false;
+  //       this.isLoggedIn = true;
+  //       //this.roles = this.storageService.getUser();
+  //       this.router.navigateByUrl('/dashboard');
+  //      // console.log('User details:', this.storageService.getUser()); // print role information in console
+  //      // console.log(this.isLoggedIn)
+  //       const token = sessionStorage.getItem('token')
+  //       console.log(token)
+    
+  //     },
+  //     error: err => {
+  //       this.errorMessage = err.error.message;
+  //       this.isLoginFailed = true;
+  //     }
+
+  //   });
+  // }
  
 
   reloadPage(): void {

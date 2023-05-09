@@ -17,4 +17,31 @@ export class DoctorsComponent {
       this.users = users;
     });
   }
+
+
+  onDeleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(
+      response => {
+        console.log(response);
+        location.reload();      },
+      error => {
+        console.error(error);
+      }
+    );
+    }
+
+    delete(id:number)
+    {
+      if (confirm('are you sure ?')) {
+        this.userService.deleteUser(id).subscribe(res => {
+          this.userService.getUsers()
+          alert('User  deleted successfully :)')
+        }, err => {
+          alert('Server down :(')
+        })
+      }
+    }
+  
+    
+    
 }

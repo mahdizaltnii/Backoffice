@@ -19,6 +19,10 @@ import { EquipementsComponent } from './dashboard/equipements/equipements.compon
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
+import { AddUserComponent } from './dashboard/add-user/add-user.component';
 import { ShiftsComponent } from './dashboard/shifts/shifts.component';
 import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
 import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
@@ -51,16 +55,17 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     LoginComponent,
     SignUpComponent,
     EditAccountsComponent,
+    SharedLayoutsComponent,
+    AddUserComponent
     ShiftsComponent,
     LeaveAuthComponent,
     InternshipRequestComponent,
     AnalyseTypeComponent,
     AnalyseCenterComponent,
-    AppointFullcalanderComponent
-    
+    AppointFullcalanderComponent  
   ],
   imports: [
-    BrowserModule,
+   BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

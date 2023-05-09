@@ -23,8 +23,8 @@ export class AuthenticationServiceService {
   private readonly apiUrl = 'http://localhost:8083/auth/api/';
   private loggedIn = new BehaviorSubject<boolean>(false);
 
-  get isLoggedIn() {
-    return this.loggedIn.asObservable();
+   isLoggedIn() {
+    return !!localStorage.getItem('token')
   }
 
   constructor(private http: HttpClient) {
@@ -50,6 +50,11 @@ export class AuthenticationServiceService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.get<User>(this.apiUrl+'current', { headers });
   }
-  
-
+  getUserInfo(token: string) {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(this.apiUrl+'info', { headers });
+  }
+  sendPasswordResetEmail(email: string) {
+    return this.http.post(`${this.apiUrl}password/reset?email=${email}`, null);
+  }
 }

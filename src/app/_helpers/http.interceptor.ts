@@ -13,25 +13,40 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
   constructor(private storageService: StorageService, private eventBusService: EventBusService) { }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({
-      withCredentials: true,
+  // intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //   req = req.clone({
+  //     withCredentials: true,
+  //   });
+
+  //   return next.handle(req).pipe(
+  //     catchError((error) => {
+  //       if (
+  //         error instanceof HttpErrorResponse &&
+  //         !req.url.includes('api/auth/signin') &&
+  //         error.status === 401
+  //       ) {
+  //         return this.handle401Error(req, next);
+  //       }
+
+  //       return throwError(() => error);
+  //     })
+  //   );
+  // }
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
+    // Get the auth token from local storage
+    const authToken = localStorage.getItem('token');
+    
+    // Clone the request and add the auth token to the headers
+    const authRequest = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${authToken}`
+      }
     });
 
-    return next.handle(req).pipe(
-      catchError((error) => {
-        if (
-          error instanceof HttpErrorResponse &&
-          !req.url.includes('api/auth/signin') &&
-          error.status === 401
-        ) {
-          return this.handle401Error(req, next);
-        }
-
-        return throwError(() => error);
-      })
-    );
+    // Send the cloned request to the next handler
+    return next.handle(authRequest);
   }
+
 
   private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
     if (!this.isRefreshing) {

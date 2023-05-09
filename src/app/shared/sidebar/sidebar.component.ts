@@ -11,17 +11,21 @@ export class SidebarComponent {
 
   openSideBar = true
 
-  patient = false
+ openSideBar = true
+
+ patient = false
+
+ @Output() isSidebarOpenChange = new EventEmitter<boolean>();
+
+  constructor(private router:Router) { }
+  
  
-  @Output() isSidebarOpenChange = new EventEmitter<boolean>();
- 
-   constructor(private router:Router) { }
-   
+
+  
   public onSave() {
      this.openSideBar = !this.openSideBar
      this.isSidebarOpenChange.emit(this.openSideBar);
- 
-    
+   
    }
    public onOpenPopup() {
      this.patient = !this.patient
@@ -46,12 +50,20 @@ export class SidebarComponent {
      this.router.navigate(['dashboard', 'doctors']);
    }
    
-   navigateTotraining() {
-     this.router.navigate(['dashboard', 'evaluation']);
-   }
+   
   
   navigateToleaves() {
     this.router.navigate(['dashboard', 'leaves']);
+  }
+
+  
+  
+  
+  navigateToEditAccount() {
+    this.router.navigate(['dashboard', 'EditAccount']);
+  }
+  navigateToDefault() {
+    this.router.navigate(['dashboard']);
   }
   navigateTointernships() {
     this.router.navigate(['dashboard', 'internships']);
@@ -73,13 +85,11 @@ export class SidebarComponent {
  addpatient() {
  
  
- 
  }
    
    
  
  
-
   
   
 
