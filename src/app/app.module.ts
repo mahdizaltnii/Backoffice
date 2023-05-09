@@ -24,6 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
 import { AddUserComponent } from './dashboard/add-user/add-user.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { AddUserComponent } from './dashboard/add-user/add-user.component';
     SignUpComponent,
     EditAccountsComponent,
     SharedLayoutsComponent,
-    AddUserComponent
+    AddUserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,10 +56,31 @@ import { AddUserComponent } from './dashboard/add-user/add-user.component';
     BrowserAnimationsModule,   
      HttpClientModule,
      ReactiveFormsModule,
-     FormsModule
+     FormsModule,
+     SocialLoginModule,
+     GoogleSigninButtonModule,
+     MatSnackBarModule
 
   ],
-  providers: [ ],
+  providers: [ 
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '712508135447-r09sm268qj5sapublk4r6cvlac3jko8u.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

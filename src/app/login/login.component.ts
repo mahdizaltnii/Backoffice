@@ -7,6 +7,9 @@ import { AuthentificationRequest, AuthentificationResponse } from "../loginform"
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../services/storage.service';
 import { User } from '../user';
+import { FacebookLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -25,20 +28,35 @@ export class LoginComponent  {
   isLoginFailed = false;
   errorMessage = '';
   roles!: string[] ;
+  user:any;
+  clientId = '712508135447-r09sm268qj5sapublk4r6cvlac3jko8u.apps.googleusercontent.com';
+
   
-  constructor(private authService: AuthenticationServiceService, private router: Router,private storageService: StorageService) {
+  constructor(private authService: AuthenticationServiceService, private router: Router,private storageService: StorageService,private authservice: SocialAuthService,private snackBar: MatSnackBar) {
     
   }
-
-  ngOnInit(){
-    this.myForm = new FormGroup({
-      email : new FormControl,
-      password : new FormControl()
-
-    })
-   
-
+  onGoogleSignIn(googleUser: any) {
+    const token = googleUser.idToken;
+    localStorage.setItem('token', token);
   }
+
+  ngOnInit() {
+    this.myForm = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    });
+  
+    this.authservice.authState.subscribe((user) => {
+      this.user = user;
+      console.log(this.user);
+      localStorage.setItem('token', this.user.idToken); // store the token in localStorage
+      this.router.navigateByUrl('/dashboard');
+    });
+  }
+  
+  
+
+
 
  
 
@@ -79,9 +97,13 @@ export class LoginComponent  {
     this.authService.sendPasswordResetEmail(this.myForm.value.email).subscribe(
       response => {
         console.log(response);
+        this.snackBar.open('Password reset email sent!', 'Close', {
+          duration: 3000
+        });
       },
       error => {
         console.error(error);
+
       }
     );
   }
