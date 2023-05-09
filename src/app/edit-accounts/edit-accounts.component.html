@@ -1,50 +1,31 @@
-<header class="page-header"><h1 class="page-title">Edit account</h1></header>
- 
+<header class="page-header">
+  <h1 class="page-title">Edit account</h1>
+</header>
+
 <div class="page-content">
   <div class="row justify-content-center">
     <div class="col col-12 col-xl-8">
-      <form class="mb-4">
+      <form class="mb-4" [formGroup]="myForm" (ngSubmit)="updateUser(this.user)">
         <label>Photo</label>
         <div class="form-group avatar-box d-flex align-items-center">
-          <img
-            src="../assets/content/user-400-1.jpg"
-            width="100"
-            height="100"
-            alt=""
-            class="rounded-500 me-4"
-          />
+          <img src="../assets/content/user-400-1.jpg" width="100" height="100" alt="" class="rounded-500 me-4" />
           <button class="btn btn-outline-primary" type="button">
             Change photo<span class="btn-icon icofont-ui-user ms-2"></span>
           </button>
         </div>
         <div class="form-group">
           <label>First name</label>
-          <input
-            class="form-control"
-            type="text"
-            placeholder="First name"
-            value="Liam"
-          />
+          <input type="text" class="form-control" formControlName="firstname" [(ngModel)]="user.firstname">
         </div>
         <div class="form-group">
           <label>Last name</label>
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Last name"
-            value="Jouns"
-          />
+          <input type="text" class="form-control" formControlName="lastname" [(ngModel)]="user.lastname">
         </div>
         <div class="row">
           <div class="col-12 col-sm-6">
             <div class="form-group">
               <label>Age</label>
-              <input
-                class="form-control"
-                type="number"
-                placeholder="Age"
-                value="25"
-              />
+              <input class="form-control" type="number" placeholder="Age" value="25" />
             </div>
           </div>
           <div class="col-12 col-sm-6">
@@ -52,37 +33,12 @@
               <label>Gender</label>
               <div class="dropdown bootstrap-select">
                 <select class="selectpicker" title="Gender">
-                  <option class="bs-title-option" value=""></option>
                   <option selected="selected">Male</option>
-                  <option>Female</option></select
-                ><button
-                  type="button"
-                  tabindex="-1"
-                  class="form-control dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  role="combobox"
-                  aria-owns="bs-select-1"
-                  aria-haspopup="listbox"
-                  aria-expanded="false"
-                  title="Male"
-                >
-                  <div class="filter-option">
-                    <div class="filter-option-inner">
-                      <div class="filter-option-inner-inner">Male</div>
-                    </div>
-                  </div>
-                </button>
+                  <option>Female</option>
+                </select>
                 <div class="dropdown-menu">
-                  <div
-                    class="inner show"
-                    role="listbox"
-                    id="bs-select-1"
-                    tabindex="-1"
-                  >
-                    <ul
-                      class="dropdown-menu inner show"
-                      role="presentation"
-                    ></ul>
+                  <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                    <ul class="dropdown-menu inner show" role="presentation"></ul>
                   </div>
                 </div>
               </div>
@@ -91,65 +47,15 @@
         </div>
         <div class="form-group">
           <label>Phone number</label>
-          <input
-            class="form-control"
-            type="number"
-            placeholder="Age"
-            value="0126596578"
-          />
+          <input class="form-control" type="number" placeholder="Age" value="0126596578" />
         </div>
         <div class="form-group">
           <label>Address</label>
           <textarea class="form-control" placeholder="Address" rows="3">
-71 Pilgrim Avenue Chevy Chase, MD 20815</textarea
-          >
+71 Pilgrim Avenue Chevy Chase, MD 20815</textarea>
         </div>
-        <div class="form-group">
-          <label>Last visit</label>
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Last visit"
-            value="18 Dec 2019"
-            readonly="readonly"
-          />
-        </div>
-        <div class="form-group">
-          <label>Status</label>
-          <div class="dropdown bootstrap-select">
-            <select class="selectpicker" title="Status">
-              <option class="bs-title-option" value=""></option>
-              <option selected="selected">Approved</option>
-              <option>Pending</option></select
-            ><button
-              type="button"
-              tabindex="-1"
-              class="form-control dropdown-toggle"
-              data-bs-toggle="dropdown"
-              role="combobox"
-              aria-owns="bs-select-2"
-              aria-haspopup="listbox"
-              aria-expanded="false"
-              title="Approved"
-            >
-              <div class="filter-option">
-                <div class="filter-option-inner">
-                  <div class="filter-option-inner-inner">Approved</div>
-                </div>
-              </div>
-            </button>
-            <div class="dropdown-menu">
-              <div
-                class="inner show"
-                role="listbox"
-                id="bs-select-2"
-                tabindex="-1"
-              >
-                <ul class="dropdown-menu inner show" role="presentation"></ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        
         <div class="row">
           <div class="col">
             <button type="button" class="btn btn-success">Save changes</button>
@@ -169,11 +75,7 @@
           <div class="col-12 col-sm-6">
             <div class="form-group">
               <label>Current password</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Current password"
-              />
+              <input class="form-control" type="text" placeholder="Current password" />
             </div>
           </div>
         </div>
@@ -181,21 +83,13 @@
           <div class="col-12 col-sm-6">
             <div class="form-group">
               <label>New password</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="New password"
-              />
+              <input class="form-control" type="text" placeholder="New password" />
             </div>
           </div>
           <div class="col-12 col-sm-6">
             <div class="form-group">
               <label>Confirm new password</label>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Confirm new password"
-              />
+              <input class="form-control" type="text" placeholder="Confirm new password" />
             </div>
           </div>
         </div>
@@ -206,4 +100,20 @@
     </div>
   </div>
 </div>
- 
+
+<!-- <form [formGroup]="myForm" (ngSubmit)="updateUser(this.user)">
+  <div class="form-group">
+    <label for="firstname">First Name:</label>
+    <input type="text" class="form-control" formControlName="firstname" [(ngModel)]="user.firstname">
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last Name:</label>
+    <input type="text" class="form-control" formControlName="lastname" [(ngModel)]="user.lastname">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" formControlName="email" [(ngModel)]="user.email">
+  </div>
+  <button class="btn btn-primary" type="submit">Save Changes</button>
+</form> -->
+

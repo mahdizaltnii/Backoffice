@@ -7,6 +7,13 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  showContent = true;
+   openSideBar = true;
+   constructor(private router: Router) {
+    
+   }
 
-
+   logout() {
+    localStorage.removeItem('token');
+  } 
 }

@@ -26,6 +26,8 @@
   line-height: 1;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
+
+  font-size: 2sem;
 }
 .icofont-angry-monster:before {
   content: "\e800";
@@ -6018,6 +6020,25 @@
 .icofont-question:before {
   content: "\efcc";
 }
+
+.icofont-quizz:before {
+  content: "\efcc";
+}
+.icofont-material-icons:before {
+  content: "\efcc";
+}
+
+.icofont-books:before {
+  content: "\efcc";
+}
+
+
+.icofont-test:before {
+  content: "\efcc";
+}
+.icofont-exam:before {
+  content: "\efcc";
+}
 .icofont-quote-left:before {
   content: "\efcd";
 }
@@ -6174,6 +6195,8 @@
 .icofont-star:before {
   content: "\f000";
 }
+
+
 .icofont-street-view:before {
   content: "\f001";
 }

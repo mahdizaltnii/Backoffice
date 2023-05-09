@@ -134,7 +134,7 @@
         >
           <ul class="list">
             <li>
-              <a routerLink="/EditAccount" class="align-items-center"
+              <a routerLink="/EditAccount" (click)="navigateToEditAccount()" class="align-items-center"
               ><span class="icon icofont-ui-home"></span> Edit
                 account</a
               >
@@ -158,7 +158,7 @@
               >
             </li>
             <li>
-              <a href="sign-in.html" class="align-items-center"
+              <a (click)="logout()" class="align-items-center" 
               ><span class="icon icofont-logout"></span> Log Out</a
               >
             </li>
