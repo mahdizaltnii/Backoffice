@@ -30,11 +30,12 @@ class Appointement {
 export class AppointementsComponent implements OnInit {
   //table
   RVliste: any
-
+  statusSelect : any
   //condition
   msgAdded: boolean = false
   edit: boolean = false
   msgEdit: boolean = false
+  idst : any
 
   //entity
   appoint = new Appointement()
@@ -55,6 +56,44 @@ export class AppointementsComponent implements OnInit {
       console.log(this.RVliste)
     })
   }
+
+  recherche(event : any){
+    var item = event.target.value
+    if(item == ''){
+      this.getAll()
+    }else{
+      this.appoin.getRendezVous().subscribe(res => {
+        this.RVliste = res
+        this.RVliste = this.RVliste.filter((i:any)=>{
+          if(i.firstName.toLowerCase().indexOf(item.toLowerCase()) != -1){
+
+            return i
+          }
+        })
+      })
+
+    }
+    console.log(item)
+  }
+  
+  postStatus(){
+    this.appoin.postChangeStatus(this.idst , this.statusSelect).subscribe(res=>{
+      console.log(res)
+      this.getAll()
+    },err =>{
+      this.getAll()
+
+    })
+  }
+
+  //ken mot raw jrayrek
+
+  changeStatus(item : any){
+    console.log(item)
+    this.idst = item.idAppointement
+    
+    // ken mot raw joret projet mtek hhhhh
+  }
   //add and edit selon la condition
   addAppoint() {
     this.msgEdit = false
@@ -68,6 +107,7 @@ export class AppointementsComponent implements OnInit {
         console.log(res)
         this.msgAdded = true
         this.getAll()
+        //nejbed mel 3dham
         this.appoint = new Appointement
         this.msgEdit = true
         //Si j'ai pas d'error le dialog back to add par defaut
@@ -79,6 +119,7 @@ export class AppointementsComponent implements OnInit {
         console.log(res)
         this.msgAdded = true
         this.getAll()
+        //moooooooooooooooooooooooooooooot
         this.appoint = new Appointement
         //Si j'ai pas d'error le dialog back to add par defaut
         this.edit = false

@@ -27,5 +27,26 @@ export class AnalyseService {
   deleteTypeAnalyse(id: any) {
     return this.http.delete('http://localhost:8083/types/' + id)
   }
+
+  //----center----
+
+  getCenterAnalyse() {
+    return this.http.get('http://localhost:8083/analyse')
+  }
+
+  postCenterAnalyse(data: any) {
+    return this.http.post('http://localhost:8083/analyse', data)
+  }
+
+
+  
+
+  editCenterAnalyse(data: any) {
+    return this.http.put('http://localhost:8083/analyse', data)
+  }
+
+  deleteCenterAnalyse(id: any) {
+    return this.http.delete('http://localhost:8083/analyse/' + id)
+  }
 }
 

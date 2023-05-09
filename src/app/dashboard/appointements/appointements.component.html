@@ -11,11 +11,12 @@
     <div class="card mb-0" style="border: none;">
       <div class="card-body">
         <!--TABLE-->
+        <input style="margin-bottom: 20px; width: 50%;" type="text" name="serch" (keyup)="recherche($event)" class="form-control" placeholder="recherche ...">
         <div class="table-responsive">
+
           <table class="table table-hover">
             <thead class="table table-dark">
               <tr>
-                <th scope="col">Photo</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Request date</th>
@@ -28,10 +29,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of RVliste">
-                <td>
-                  <img src="../assets/content/user-40-1.jpg" alt="" width="40" height="40" class="rounded-500" />
-                </td>
-                <td><strong>Liam</strong></td>
+               
+                <td><strong>{{item.firstName}} {{item.lastName}}</strong></td>
                 <td>
                   <div class="d-flex align-items-center nowrap text-primary">
                     <span class="icofont-ui-email p-0 me-2"></span>
@@ -42,23 +41,23 @@
                   <div class="text-muted text-nowrap">{{item.requestDate}}</div>
                 </td>
                 <td>
-                  <div class="d-flex align-items-center nowrap text-primary">
-                    <span class="icofont-ui-cell-phone p-0 me-2"></span>
-                    0126595743
-                  </div>
+                  <div class="text-muted text-nowrap">{{item.appointmentDate}}</div>
                 </td>
                 <td></td>
-                <td>Dr. Benjamin</td>
-                <td *ngIf="item.is_Validated_By_Admin" style="color: green; font-weight: bold;">{{item.status}}</td>
-                <td *ngIf="!item.is_Validated_By_Admin" style="color: red; font-weight: bold;">{{item.status}}</td>
+                <div class="text-muted text-nowrap">{{item.phoneNumber}}</div>
+                <td  style=" font-weight: bold;">{{item.status}}</td>
                 <td>
                   <div class="actions">
                     <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="editDialog(item)"
                       data-bs-toggle="modal" data-bs-target="#add-appointment">
                       <span class="btn-icon icofont-ui-edit"></span>
                     </button>
+                    <button class="btn btn-danger btn-sm btn-square rounded-pill" (click)="changeStatus(item)"
+                      data-bs-toggle="modal" data-bs-target="#add-appointment" data-bs-toggle="modal" data-bs-target="#change-appointment">
+                      <span class="btn-icon icofont-ui-settings"></span>
+                    </button>
                     <button class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteAppointe(item)">
-                      <span class="btn-icon icofont-ui-delete"></span>
+                      <span class="btn-icon icofont-ui-edit"></span>
                     </button>
                   </div>
                 </td>
@@ -136,6 +135,45 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addAppoint()">{{edit ? 'Edit'
               : 'Save'}} </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="change-appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel" >Change status</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              
+
+
+<!--MOT-->
+
+              <div class="col-12">
+                <label>Status</label>
+                <select class="form-select" [(ngModel)]="statusSelect" aria-label="Default select example">
+                  <option value="PENDING">PENDING</option>
+                  <option value="APPROVED">APPROVED</option>
+                  <option value="REJECTED">REJECTED</option>
+                  <option value="COMPLETED">COMPLETED</option>
+                  <option value="URGENT">URGENT</option>
+                </select>
+              </div>
+
+         
+              
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="postStatus()" >Save</button>
 
           </div>
         </div>

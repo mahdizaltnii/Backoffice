@@ -68,8 +68,7 @@ export class AppointFullcalanderComponent implements OnInit {
     this.appoin.postRendezVous(this.appoint).subscribe(res => {
       console.log(res)
       this.getAll()
-     
-
+      
     })
   }
 

@@ -18,6 +18,7 @@ import {
 } from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
 import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
 import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
+import { AnalyseCenterComponent } from './dashboard/analyse-center/analyse-center.component';
 
 
 
@@ -28,6 +29,7 @@ import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/a
   { path: 'admin/apointement', component: AppointementsComponent },
   { path: 'admin/apointement/fullcalander', component: AppointFullcalanderComponent },
   { path: 'admin/analyse-type', component: AnalyseTypeComponent },
+  { path: 'admin/analyse-center', component: AnalyseCenterComponent },
   { path: 'admin/training', component: TrainingComponent },
   { path: 'admin/equipements', component: EquipementsComponent },
   { path: 'admin/patients', component: PatientsComponent },
