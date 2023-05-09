@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="row"*ngFor="let s of stat">
+        <div class="col-sm" >
+          {{s}}<br>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="row"*ngFor="let ss of satt">
+        <div class="col-sm" >
+          {{ss}}<br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content-wrap">
+    <header class="page-header"><h1 class="page-title">Leaves</h1></header>
+    <div class="page-content">
+      <div class="card mb-0" style="border: none;">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                    <th></th>
+                  <th scope="col">Id</th>
+                  <th scope="col">startDate</th>
+                  <th scope="col">endDate</th>
+                  <th scope="col">verification</th>
+                  <th scope="col">reason </th>
+                  <th scope="col">user email</th>
+                  <th scope="col">clear</th>
+                </tr>
+              </thead>
+               <tbody *ngFor="let m of leaves">
+  <tr [ngClass]="{'table-success': m.status === 'ACCEPTE', 'table-danger': m.status === 'REFUSE', '': m.status === 'ENATTENTE'}">
+    <td>
+      <div class="actions">
+        <button class="btn btn-info btn-sm btn-square rounded-pill" (click)="acceptLeave(m.id)">
+          <i class="icofont-check"></i>
+        </button>
+        <button class="btn btn-error btn-sm btn-square rounded-pill" (click)="reffuseeave(m.id)">
+          <i class="icofont-close"></i>
+        </button>
+      </div>
+    </td>
+    <td><strong>{{m.id}}</strong></td>
+    <td>
+      <div class="d-flex align-items-center nowrap text-primary">{{m.startDate}}</div>
+    </td>
+    <td><div class="text-muted text-nowrap">{{m.endDate}}</div></td>
+    <td><div class="text-muted text-nowrap">{{m.verification}}</div></td>
+    <td>{{m.reason}}</td>
+    <td>{{m.userr.email}}</td>
+    <td>
+      <div class="actions">
+        <button class="btn btn-error btn-sm btn-square rounded-pill" (click)="deleteLeave(m.id)">
+          <span class="btn-icon icofont-ui-delete"></span>
+        </button>
+      </div>
+    </td>
+  </tr>  
+</tbody>
+
+              </table>
+          </div>

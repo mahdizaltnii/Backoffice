@@ -31,9 +31,13 @@
               "src/assets/css/Chart.min.css",
               "src/assets/css/datatables.min.css",
               "src/assets/css/style.css",
-              "src/assets/css/bootstrap/bootstrap.css"
+              "src/assets/css/bootstrap/bootstrap.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/assets/css/bootstrap/bootstrap.css",
               "src/assets/css/bootstrap-select.min.css",
@@ -105,13 +110,6 @@
               "src/assets/css/leaflet.css",
               "src/assets/css/morris.css",
               "src/assets/css/simple-line-icons.css"
-
-
-
-
-
-
-
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -125,6 +123,7 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "b95669ad-193d-468d-a209-f372f1824e14"
+
   }
 }

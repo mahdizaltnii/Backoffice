@@ -9,8 +9,8 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 })
 export class SidebarComponent {
 
+  openSideBar = true
 
- openSideBar = true
 
  patient = false
 
@@ -18,47 +18,68 @@ export class SidebarComponent {
 
   constructor(private router:Router) { }
   
- public onSave() {
-    this.openSideBar = !this.openSideBar
-    this.isSidebarOpenChange.emit(this.openSideBar);
+ 
 
+  
+  public onSave() {
+     this.openSideBar = !this.openSideBar
+     this.isSidebarOpenChange.emit(this.openSideBar);
    
-  }
-  public onOpenPopup() {
-    this.patient = !this.patient
-  }
-  navigateToAppointements() {
-    this.router.navigate(['dashboard', 'apointement']);
-  }
+   }
+   public onOpenPopup() {
+     this.patient = !this.patient
+   }
+   navigateToAppointements() {
+     this.router.navigate(['dashboard', 'apointement']);
+   }
+   
+   navigateToTraining() {
+     this.router.navigate(['dashboard', 'training']);
+   }
+   
+   navigateToEquipements() {
+     this.router.navigate(['dashboard', 'equipement']);
+   }
+   
+   navigateToPatients() {
+     this.router.navigate(['dashboard', 'patients']);
+   }
+   
+   navigateToDoctors() {
+     this.router.navigate(['dashboard', 'doctors']);
+   }
+   
+   
   
-  navigateToTraining() {
-    this.router.navigate(['dashboard', 'training']);
+  navigateToleaves() {
+    this.router.navigate(['dashboard', 'leaves']);
   }
-  
-  navigateToEquipements() {
-    this.router.navigate(['dashboard', 'equipement']);
+
+  navigateTointernships() {
+    this.router.navigate(['dashboard', 'internships']);
   }
-  
-  navigateToPatients() {
-    this.router.navigate(['dashboard', 'patients']);
+  navigateToahmed() {
+    this.router.navigate(['dashboard', 'ahmed']);
   }
-  
-  navigateToDoctors() {
-    this.router.navigate(['dashboard', 'doctors']);
+ 
+  navigateToquizz() {
+    this.router.navigate(['dashboard', 'quizz']);
   }
-  
   navigateToEditAccount() {
     this.router.navigate(['dashboard', 'EditAccount']);
   }
-  navigateToDefault() {
-    this.router.navigate(['dashboard']);
-  }
+   navigateToDefault() {
+     this.router.navigate(['dashboard']);
+   }
+  
+ addpatient() {
  
-addpatient() {
-
-
-
-}
+ 
+ }
+   
+   
+ 
+ 
   
   
 

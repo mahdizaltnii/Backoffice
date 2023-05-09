@@ -21,5 +21,6 @@ export class HeaderComponent {
   navigateToEditAccount() {
     this.router.navigate(['dashboard', 'EditAccount']);
   }
+
   
 }
