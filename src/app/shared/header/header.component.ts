@@ -12,12 +12,15 @@ import { StorageService } from 'src/app/services/storage.service';
 export class HeaderComponent {
   constructor(private router:Router,private storageService : StorageService){}
 
-  logout() {
-    this.storageService.logout()
 
+  logout() {
+    localStorage.removeItem('token');
     this.router.navigateByUrl('/');
   } 
   
-  
+  navigateToEditAccount() {
+    this.router.navigate(['dashboard', 'EditAccount']);
+  }
+
   
 }

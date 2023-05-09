@@ -1,50 +1,62 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {LoginComponent} from "./login/login.component";
-import {SignUpComponent} from "./sign-up/sign-up.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { AppointementsComponent } from './dashboard/appointements/appointements.component';
 import { TrainingComponent } from './dashboard/training/training.component';
 import { EquipementsComponent } from './dashboard/equipements/equipements.component';
 import { PatientsComponent } from './dashboard/patients/patients.component';
 import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
+import { AppComponent } from './app.component';
+import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
+import { AuthGuard } from './_shared/auth.guard';
 import { InternComponent } from './dashboard/intern/intern.component';
-import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
-import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
-import { ShiftsComponent } from './dashboard/shifts/shifts.component';
-import {
-  EvaluationTrainingComponent
-} from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
 import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
 import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
 import { AnalyseCenterComponent } from './dashboard/analyse-center/analyse-center.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 
 
+ 
 
- const routes: Routes = [
-  { path: '', component:LoginComponent  },
-  { path: 'admin/dashboard', component: DashboardComponent },
-  { path: 'admin/signup', component: SignUpComponent },
-  { path: 'admin/apointement', component: AppointementsComponent },
-  { path: 'admin/apointement/fullcalander', component: AppointFullcalanderComponent },
-  { path: 'admin/analyse-type', component: AnalyseTypeComponent },
-  { path: 'admin/analyse-center', component: AnalyseCenterComponent },
-  { path: 'admin/training', component: TrainingComponent },
-  { path: 'admin/equipements', component: EquipementsComponent },
-  { path: 'admin/patients', component: PatientsComponent },
-  { path: 'admin/doctors', component: DoctorsComponent },
-  { path: 'admin/internships', component: InternshipRequestComponent },
-  { path: 'admin/leaves', component: LeaveAuthComponent },
-  { path: 'admin/ahmed', component: ShiftsComponent },
-   { path: 'admin/login', component: LoginComponent },
-   { path: 'admin/EditAccount', component: EditAccountsComponent },
-   { path: 'admin/signup', component: SignUpComponent },
-   { path: 'admin/evaluation', component: EvaluationTrainingComponent}
+const routes: Routes = [
+  { path: '', component: LoginComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'apointement', component: AppointementsComponent },
+      { path: 'training', component: TrainingComponent },
+      { path: 'equipement', component: EquipementsComponent },
+      { path: 'patients', component: PatientsComponent },
+      { path: 'doctors', component: DoctorsComponent },
+      { path: 'EditAccount', component: EditAccountsComponent },
+      { path: 'evaluation', component: EvaluationTrainingComponent },
+      { path: 'internships', component: InternshipRequestComponent },
+        { path: 'analyse-type', component: AnalyseTypeComponent },
+       { path: 'analyse-center', component: AnalyseCenterComponent },
+      { path: 'leaves', component: LeaveAuthComponent },
+      { path: 'ahmed', component: ShiftsComponent },
+      { path: 'analyse-type', component: AnalyseTypeComponent },
+      {
+        path: 'apointement/fullcalander',
+        component: AppointFullcalanderComponent,
+      },
+    ],
+  },
+  { path: 'signup', component: SignUpComponent },
+  { path: '**', redirectTo: '' },
 ];
 
+
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
