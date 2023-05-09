@@ -23,4 +23,8 @@ export class AppointementsService {
   deleteRendezVous(id: any) {
     return this.http.delete('http://localhost:8083/rendezvous/' + id)
   }
+
+  postChangeStatus(id : any , status : any){
+    return this.http.put('http://localhost:8083/rendezvous/'+id+'/status?status='+status , {})
+  }
 }

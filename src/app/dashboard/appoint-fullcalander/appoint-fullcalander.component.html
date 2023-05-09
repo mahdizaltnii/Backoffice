@@ -1,1 +1,56 @@
-<full-calendar [options]="calendarOptions"></full-calendar>
+<div>
+    <div style="margin-bottom: 20px;">
+        <button class="btn btn-primary" (click)="addApp()" data-bs-toggle="modal"
+        data-bs-target="#add-appointment">+ Appointment</button>
+    </div>
+
+    <full-calendar [options]="calendarOptions"></full-calendar>
+
+    <div class="modal fade" id="add-appointment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel" >Add appointment</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+              
+                <div class="col-12">
+                  <label>Appointment date</label>
+                  <input type="datetime-local" class="form-control" name="appointmentDate" [(ngModel)]="appoint.appointmentDate">
+                </div>
+
+                <div class="col-12">
+                    <label>First name</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="appoint.firstName">
+                  </div>
+
+                  <div class="col-12">
+                    <label>Last name</label>
+                    <input type="text" class="form-control" name="last" [(ngModel)]="appoint.lastName">
+                  </div>
+
+                  <div class="col-12">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="appoint.email">
+                  </div>
+  
+  
+  
+  
+  
+             
+  
+  
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addApp()" >Add </button>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

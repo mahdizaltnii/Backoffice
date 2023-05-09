@@ -8,7 +8,7 @@
     </div>
     <div *ngIf="msgAdded && edit" class="alert alert-success" role="alert"
         style="text-align: center; color : white ; font-weight: bold;">
-        Type Added successfully.
+        Type edit successfully.
     </div>
     <div class="page-content">
         <div class="card mb-0" style="border: none;">
@@ -77,11 +77,11 @@
         </div>
         <div class="add-action-box">
             <button class="btn btn-primary btn-lg btn-square rounded-pill" data-bs-toggle="modal"
-                data-bs-target="#add-appointment">
+                data-bs-target="#add-type">
                 <span class="btn-icon icofont-plus"></span>
             </button>
         </div>
-        <div class="modal fade" id="add-appointment" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="add-type" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -105,7 +105,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Analysis delay</label>
-                                <input type="datetime-local" class="form-control" name="analysisDelay"
+                                <input type="number" class="form-control" name="analysisDelay"
                                     [(ngModel)]="analyseType.analysisDelay">
 
                             </div>
