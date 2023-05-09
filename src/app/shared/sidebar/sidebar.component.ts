@@ -11,7 +11,6 @@ export class SidebarComponent {
 
   openSideBar = true
 
- openSideBar = true
 
  patient = false
 
@@ -56,15 +55,6 @@ export class SidebarComponent {
     this.router.navigate(['dashboard', 'leaves']);
   }
 
-  
-  
-  
-  navigateToEditAccount() {
-    this.router.navigate(['dashboard', 'EditAccount']);
-  }
-  navigateToDefault() {
-    this.router.navigate(['dashboard']);
-  }
   navigateTointernships() {
     this.router.navigate(['dashboard', 'internships']);
   }

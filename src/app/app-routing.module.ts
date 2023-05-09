@@ -13,17 +13,12 @@ import { AppComponent } from './app.component';
 import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
 import { AuthGuard } from './_shared/auth.guard';
 import { InternComponent } from './dashboard/intern/intern.component';
-import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
-import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
-import { ShiftsComponent } from './dashboard/shifts/shifts.component';
-import { EvaluationTrainingComponent} from "./dashboard/evaluationTraining/evaluation-training/evaluation-training.component";
-
-import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
-import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
-import { ShiftsComponent } from './dashboard/shifts/shifts.component';
-import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
 import { AnalyseTypeComponent } from './dashboard/analyse-type/analyse-type.component';
 import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
+import { ShiftsComponent } from './dashboard/shifts/shifts.component';
+import { LeaveAuthComponent } from './dashboard/leave-auth/leave-auth.component';
+import { InternshipRequestComponent } from './dashboard/internship-request/internship-request.component';
+import { EvaluationTrainingComponent } from './dashboard/evaluationTraining/evaluation-training/evaluation-training.component';
  
 
 const routes: Routes = [
