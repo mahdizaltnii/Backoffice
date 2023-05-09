@@ -1,3 +1,22 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="row"*ngFor="let s of stat">
+        <div class="col-sm" >
+          {{s}}<br>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="row"*ngFor="let ss of satt">
+        <div class="col-sm" >
+          {{ss}}<br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="main-content-wrap">
     <header class="page-header"><h1 class="page-title">Leaves</h1></header>
     <div class="page-content">
@@ -13,7 +32,6 @@
                   <th scope="col">endDate</th>
                   <th scope="col">verification</th>
                   <th scope="col">reason </th>
-                  <th scope="col">status </th>
                   <th scope="col">user email</th>
                   <th scope="col">clear</th>
                 </tr>
@@ -37,7 +55,6 @@
     <td><div class="text-muted text-nowrap">{{m.endDate}}</div></td>
     <td><div class="text-muted text-nowrap">{{m.verification}}</div></td>
     <td>{{m.reason}}</td>
-    <td>{{m.status}}</td>
     <td>{{m.userr.email}}</td>
     <td>
       <div class="actions">

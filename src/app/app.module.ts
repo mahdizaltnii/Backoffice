@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { RouterModule } from '@angular/router';
     ShiftsComponent,
     LeaveAuthComponent,
     InternshipRequestComponent
+    
 
   ],
   imports: [
