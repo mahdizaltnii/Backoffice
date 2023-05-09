@@ -75,6 +75,16 @@ export class LoginComponent  {
      }
 
      
+  sendPasswordResetEmail() {
+    this.authService.sendPasswordResetEmail(this.myForm.value.email).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
   // onSubmit(): void {
   //   console.log(this.myForm.value)
 

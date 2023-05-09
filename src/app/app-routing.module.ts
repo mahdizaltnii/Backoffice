@@ -11,10 +11,11 @@ import { DoctorsComponent } from './dashboard/doctors/doctors.component';
 import { EditAccountsComponent } from './edit-accounts/edit-accounts.component';
 import { AppComponent } from './app.component';
 import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-layouts/shared-layouts.component';
+import { AuthGuard } from './_shared/auth.guard';
 
  const routes: Routes = [
   { path: '', component:LoginComponent  },
-  { path: 'dashboard', component: DashboardComponent,
+  { path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard],
   children: [
     { path: 'apointement', component: AppointementsComponent },
   { path: 'training', component: TrainingComponent },
@@ -29,6 +30,8 @@ import { SharedLayoutsComponent } from './dashboard/dashboard-components/shared-
 
 },
   { path: 'signup', component: SignUpComponent },
+  { path: '**', redirectTo: '' }
+
   
  
 ];
