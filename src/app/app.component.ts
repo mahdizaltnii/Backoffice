@@ -2,6 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {NavigationEnd, Router} from "@angular/router";
 import { LoginComponent } from './login/login.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,6 +34,7 @@ export class AppComponent {
        }
      });
    }
+
 
   
 

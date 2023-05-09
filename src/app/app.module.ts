@@ -36,6 +36,7 @@ import { AnalyseCenterComponent } from './dashboard/analyse-center/analyse-cente
 import { AppointFullcalanderComponent } from './dashboard/appoint-fullcalander/appoint-fullcalander.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     AnalyseTypeComponent,
     AnalyseCenterComponent,
     AppointFullcalanderComponent  
+
   ],
   imports: [
    BrowserModule,

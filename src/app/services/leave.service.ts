@@ -60,4 +60,7 @@ public getUsersOnLeave(): Observable<Object[]>{// n'oubie pas de changer le type
 public getLeaveStatisticsByReason(): Observable<Object[]>{
   return this.http.get<Object[]>(`${this.apiserverUrl}/leaveStatistics`)
 }
+public getLeaveStatisticsByStatus(): Observable<Object[]>{
+  return this.http.get<Object[]>(`${this.apiserverUrl}/leaveStats`)
+}
 }
