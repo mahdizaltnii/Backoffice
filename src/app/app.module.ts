@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QuizzComponent } from './dashboard/quizz/quizz.component';
 import { EvaluationComponent } from './dashboard/evaluation/evaluation.component';
 import { ImageComponent } from './dashboard/image/image.component';
+import { CertificationComponent } from './dashboard/certification/certification.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +58,12 @@ import { ImageComponent } from './dashboard/image/image.component';
     AppointementsComponent,
     DoctorsComponent,
     PatientsComponent,
-    TrainingComponent,
     EquipementsComponent,
     LoginComponent,
     SignUpComponent,
     EditAccountsComponent,
     ImageComponent,
+    CertificationComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class TrainingComponent implements OnInit {
   photoFile: File | undefined;
   listTrainings: Training[] = [];
   listQuizzs: any;
-  editFormVisible: boolean = false;
+  editFormVisible: boolean = true;
   newTraining: Training = new Training();
   newQuestion: QuestQuizz = new QuestQuizz();
   proposition1: Proposition= new Proposition();
@@ -67,13 +67,9 @@ training !: Training;
   }
   
 
-  showAddForm() {
-    this.editFormVisible = true;
-  }
 
-  hideAddForm() {
+  hideAddValues() {
     this.newTraining = new Training();
-    this.editFormVisible = false;
   }
 
   addTraining(newTraining: Training) {
@@ -105,6 +101,8 @@ training !: Training;
    // this.trainingService.getQuizzQuestions(idQ).subscribe(res => this.listQuestions = res);
 
     this.isSubmitted = true;
+    this.editFormVisible = false;
+
 
   }
 

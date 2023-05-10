@@ -1,0 +1,88 @@
+.scrollable-container {
+    overflow-y: auto; /* Enable vertical scrolling */
+      height: 100vh; /* Set the container's height to 100% of the viewport height */
+  
+  } 
+  
+ 
+
+  .container {
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .certificate {
+    position: relative;
+    max-width: 80%;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+  }
+  
+  .certificate h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+
+  }
+  
+  .certificate-content {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+  }
+  
+  .logo-badge {
+    width: 150px;
+    height: 150px;
+    margin-right: 30px;
+    margin-left: 30px;
+    align-self: flex-start; /* Align the logo-badge with the top of the flex container */
+    margin-top: 40px;
+
+  }
+  
+  
+  .certificate-info h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .certificate-info h3 {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 20px;
+  }
+  
+  .certificate-info p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .certificate-info {
+    margin-bottom: 130px;
+    margin-top: 30px;
+    margin-left: 80px;
+    width: 400px;
+
+  }
+  
+  .certificate-date {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .certificate-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 90px;
+    height: 90px;
+  }
+  

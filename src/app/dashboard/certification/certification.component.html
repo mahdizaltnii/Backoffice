@@ -1,1 +1,50 @@
-<p>certification works!</p>
+
+<!--
+<div class="container scrollable-container">
+  
+      
+<div  *ngFor="let c of listCertifications">
+    <div class="card">
+      <div class="card-body">
+        <a style="text-align: center;">
+          <h5 class="card-title">{{c.name}}</h5>
+          <p></p>
+          <p class="card-text">Description: {{c.description}}</p>
+          <p class="card-text">Date: {{c.date}}</p>
+
+        </a>
+        <img [src]="c.imageDataUrl" alt="certification Image" class="card-img-top">
+
+       
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="container scrollable-container">
+<div class="certificate"   *ngFor="let c of listCertifications">
+    <h1>{{c.name}}</h1>
+    <div class="certificate-content">
+        
+      <img [src]=""  alt="Learner Photo"  class="logo-badge">
+   
+      <div class="certificate-info">
+        <h2>Description: </h2>
+        <p>{{c.description}}</p>
+        <h3>Congradulations Mr(/Mrs)      {{c.learner_name}} </h3> 
+        <h3>Date:</h3>
+        <p class="certificate-date" >{{c.date}}</p>
+
+
+      </div>
+
+    </div>
+    <img [src]="c.imageDataUrl"  alt="Certificate Badge" class="certificate-badge">
+
+  </div>
+</div>
+  
+
+ 
+ 

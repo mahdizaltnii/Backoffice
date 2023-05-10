@@ -1,4 +1,34 @@
 
+<div *ngIf="editFormVisible">
+  <div class="add-form">
+    
+    <form>
+      <h2>Add New Training</h2>
+      <div >
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="newTraining.name" [ngModelOptions]="{ standalone: true } "  required>
+      </div>
+      <div >
+        <label for="start_date">Start Date</label>
+        <input type="date" class="form-control" id="start_date" [(ngModel)]="newTraining.start_date" [ngModelOptions]="{ standalone: true }"   required>
+      </div>
+      <div >
+        <label for="end_date">End Date</label>
+        <input type="date" class="form-control" id="end_date" [(ngModel)]="newTraining.end_date" [ngModelOptions]="{ standalone: true }"   required>
+      </div>
+      <div >
+        <label for="cost">Cost</label>
+        <input type="text" class="form-control" id="cost" [(ngModel)]="newTraining.cost" [ngModelOptions]="{ standalone: true }"    required>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top:-20px;">
+        <button class="btn btn-primary" (click)="addTraining(newTraining)">Submit</button>
+        <button class="btn  btn-close" (click)="hideAddValues()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
+</div>
 
 <div class="container scrollable-container">
   <div *ngIf="!isSubmitted">
@@ -8,15 +38,15 @@
         <div class="card">
           <img [src]="training.imageDataUrl" alt="Training Image" class="card-img-top">
           <div class="card-body">
-            <a style="text-align: center;">
+            <a style="text-align: center; ">
               <h5 class="card-title">{{training.name}}</h5>
               <p></p>
               <p class="card-text">Start Date: {{training.start_date}}</p>
               <p class="card-text">End Date: {{training.end_date}}</p>
               <p class="card-text">Cost: {{training.cost}}</p>
-              <p class="card-text">Period: {{training.period}}</p>
+              <p class="card-text">Period: {{training.period}}  days</p>
             </a>
-            <a href="javascript:void(0)" (click)="getMoreDetails(training.id)">
+            <a href="javascript:void(0)" (click)="getMoreDetails(training.id)"  style="margin-left : 20px; font-size: medium;" >
               Show more details
             </a>
             <div>
@@ -32,45 +62,6 @@
       </div>
     </div>
     
-
-
-
-  <div *ngIf="!editFormVisible">
-    <button (click)="showAddForm()">Add Training</button>
-  </div>
-
-  <div *ngIf="editFormVisible">
-    <div class="overlay"></div>
-    <div class="add-form">
-      <form>
-        <h2>Add New Training</h2>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" [(ngModel)]="newTraining.name" [ngModelOptions]="{ standalone: true }">
-        </div>
-        <div class="form-group">
-          <label for="start_date">Start Date</label>
-          <input type="date" class="form-control" id="start_date" [(ngModel)]="newTraining.start_date" [ngModelOptions]="{ standalone: true }">
-        </div>
-        <div class="form-group">
-          <label for="end_date">End Date</label>
-          <input type="date" class="form-control" id="end_date" [(ngModel)]="newTraining.end_date" [ngModelOptions]="{ standalone: true }">
-        </div>
-        <div class="form-group">
-          <label for="cost">Cost</label>
-          <input type="text" class="form-control" id="cost" [(ngModel)]="newTraining.cost" [ngModelOptions]="{ standalone: true }">
-        </div>
-
-        <div style="display: flex; justify-content: center; margin-top:-20px;">
-          <button class="btn btn-primary btn-lg" (click)="addTraining(newTraining)">Submit</button>
-          <button class="btn  btn-close" (click)="hideAddForm()">Cancel</button>
-        </div>
-      </form>
-
-
-    </div>
-
-  </div>
 </div>
 
 
@@ -78,29 +69,29 @@
 
 <div *ngIf="isSubmitted">
   <div class="row">
-    <div class="col-md-6">
-      <select class="form-select" aria-label="Select Quizz" [(ngModel)]="selectedQuizz" (change)=" showQuizzDetails()">
+    <div class="select-wrapper">
+      <select class="custom-select form-select" aria-label="Select Quizz" [(ngModel)]="selectedQuizz" (change)="showQuizzDetails()">
         <option selected>Open this select menu</option>
         <option *ngFor="let quizz of listQuizzs" [ngValue]="quizz">{{ quizz.title }}</option>
       </select>
+      <span class="custom-select-arrow"></span>
     </div>
   </div>
   
     <div *ngIf="selectedQuizz">
      
-          <h3>Title : {{ selectedQuizz.title }}</h3>
-          <p>Description : {{ selectedQuizz.description }}</p>
-          <p>Training Name : {{ selectedQuizz.training_name }}</p>
-          <h3>Questions :</h3>
-
+          <h3  class="h3">{{ selectedQuizz.title }}</h3>
+          <p   class="p">   Training Name :    {{ selectedQuizz.training_name }}</p>
+          <p class="p">Description :      {{ selectedQuizz.description }}</p>
+          <h3    class="h3">Questions :</h3>
 
           <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">QUESTION</th>
-                <th scope="col">proposition text:</th>
-                <th scope="col">Correct or not</th>
-                <th scope="col">Action</th>
+                <th scope="col">PROPOSITION TEXT:</th>
+                <th scope="col">CORRECT OR NOT</th>
+                <th scope="col">ACTIONS</th>
 
               </tr>
             </thead>
@@ -196,33 +187,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </tbody>
           </table>
           
@@ -234,3 +198,4 @@
   
 
 </div>
+
